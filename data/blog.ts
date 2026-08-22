@@ -11,7 +11,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
       de: 'Zahnempfindlichkeit bei Winterkälte: Warum passiert es und wie kann man es verhindern?'
     },
     date: '03 Aralık 2025',
-    author: { tr: 'Dt. Furkan Emre Yıldız', en: 'Dt. Furkan Emre Yıldız', de: 'Dt. Furkan Emre Yıldız' },
+    author: { tr: 'Dt. Furkan Akyıldız', en: 'Dt. Furkan Akyıldız', de: 'Dt. Furkan Akyıldız' },
     imageUrl: 'https://i.imgur.com/75Hc8Xi.jpg',
     summary: {
       tr: 'Soğuk havalarda nefes alırken dişlerinizde ani bir sızlama mı hissediyorsunuz? Kış aylarında artan diş hassasiyetinin nedenlerini ve alabileceğiniz önlemleri bu yazıda derledik.',
@@ -1022,7 +1022,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
       de: 'Mundgeruch (Halitosis): Ursachen und Prävention'
     },
     date: '19 Aralık 2024',
-    author: { tr: 'Dt. Furkan Emre Yıldız', en: 'Dt. Furkan Emre Yıldız', de: 'Dt. Furkan Emre Yıldız' },
+    author: { tr: 'Dt. Büşra Beyhan', en: 'Dt. Büşra Beyhan', de: 'Dt. Büşra Beyhan' },
     imageUrl: 'https://i.imgur.com/UyxVCws.jpg',
     summary: {
       tr: 'Sosyal yaşamı olumsuz etkileyen ağız kokusunun ardında yatan nedenler nelerdir? Basit hijyen alışkanlıklarından ciddi sağlık sorunlarına kadar potansiyel sebepleri ve etkili çözüm önerilerini inceliyoruz.',
@@ -1481,7 +1481,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
       de: 'Was nach einer Zahnextraktion zu tun ist'
     },
     date: '20 Haziran 2024',
-    author: { tr: 'Dt. Furkan Emre Yıldız', en: 'Dt. Furkan Emre Yıldız', de: 'Dt. Furkan Emre Yıldız' },
+    author: { tr: 'Dt. Burak Şenol', en: 'Dt. Burak Şenol', de: 'Dt. Burak Şenol' },
     imageUrl: 'https://i.imgur.com/fiXCdyV.jpg',
     summary: {
       tr: 'Diş çekimi sonrası hızlı ve sorunsuz bir iyileşme süreci için nelere dikkat etmelisiniz? Kanama kontrolü, ağrı yönetimi, beslenme ve alveolit (kuru soket) riskini önleme hakkında önemli ipuçları.',

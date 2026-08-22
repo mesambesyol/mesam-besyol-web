@@ -616,7 +616,7 @@ export const SERVICES_DATA: Service[] = [
     },
     icon: React.createElement(ToothIcon),
     imageUrl: 'https://i.imgur.com/vawWAaF.jpeg',
-    relatedDoctorIds: ['dt-furkan-emre-yildiz'],
+    relatedDoctorIds: ['dt-busra-beyhan', 'dt-furkan-akyildiz'],
   },
   {
     id: 'ortodonti',
@@ -1033,7 +1033,7 @@ export const SERVICES_DATA: Service[] = [
     },
     icon: React.createElement(PuzzlePieceIcon),
     imageUrl: 'https://i.imgur.com/gXpAaFT.jpeg',
-    relatedDoctorIds: ['dt-furkan-emre-yildiz', 'dt-burak-senol'],
+    relatedDoctorIds: ['dt-burak-senol', 'dt-hasan-sinankili'],
   },
   {
     id: 'pedodonti',
@@ -1240,6 +1240,6 @@ export const SERVICES_DATA: Service[] = [
     },
     icon: React.createElement(HeartIcon),
     imageUrl: 'https://i.imgur.com/a6jeieW.jpeg',
-    relatedDoctorIds: ['dt-burak-senol', 'dt-furkan-emre-yildiz'],
+    relatedDoctorIds: ['dt-burak-senol'],
   },
 ];

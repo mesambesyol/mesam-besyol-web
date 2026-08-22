@@ -3,5 +3,5 @@
   "description": "Mesam Beşyol Diş Kliniği için bilgilendirici web sitesi. Hizmetler, hekimler ve iletişim bilgileri.",
   "requestFramePermissions": [],
   "prompt": "",
-  "majorCapabilities": []
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
