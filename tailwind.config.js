@@ -14,7 +14,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['"Outfit"', '"Plus Jakarta Sans"', 'sans-serif'],
       },
       fontSize: {
         xs: '0.875rem',    // 14px

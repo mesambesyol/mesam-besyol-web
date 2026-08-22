@@ -102,14 +102,14 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ slides, autoPlayInterval = 5000
   }
 
   const getButtonClasses = (variant: CtaButtonConfig['variant']) => {
-    const baseClasses = "flex items-center justify-center px-6 py-3 sm:px-8 border text-base font-medium rounded-full transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg backdrop-blur-md";
+    const baseClasses = "flex items-center justify-center px-6 py-3.5 sm:px-8 text-base font-semibold rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 active:scale-[0.98]";
     switch (variant) {
       case 'primary':
-        return `${baseClasses} border-white/50 text-white bg-white/25 hover:bg-white/40`;
+        return `${baseClasses} border border-white/40 text-white bg-white/20 hover:bg-white/30 backdrop-blur-md shadow-lg shadow-black/20 hover:shadow-xl`;
       case 'secondary':
-        return `${baseClasses} border-transparent text-white bg-brand-teal/80 hover:bg-brand-teal ring-1 ring-white/50 hover:ring-white`;
+        return `${baseClasses} border border-teal-400/40 text-white bg-gradient-to-r from-brand-teal to-teal-600 hover:from-teal-600 hover:to-teal-700 shadow-lg shadow-teal-900/30 hover:shadow-xl hover:shadow-teal-500/20`;
       case 'outline':
-        return `${baseClasses} border-2 border-white text-white hover:bg-white/10`;
+        return `${baseClasses} border border-white/60 text-white bg-black/20 hover:bg-white/15 backdrop-blur-sm shadow-md hover:shadow-lg`;
       default:
         return "";
     }
@@ -174,27 +174,27 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ slides, autoPlayInterval = 5000
       {/* Navigation Arrows */}
       <button
         onClick={() => { goToPrev(); }}
-        className="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 sm:p-3 rounded-full hover:bg-opacity-50 focus:outline-none focus:ring-2 focus:ring-white transition-opacity"
+        className="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2 bg-black/40 hover:bg-black/70 backdrop-blur-md text-white p-2.5 sm:p-3.5 rounded-2xl border border-white/20 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white transition-all shadow-lg"
         aria-label={t('heroSlider.prevArrow')}
       >
-        <ChevronLeftIcon className="h-6 w-6 sm:h-8 sm:w-8" />
+        <ChevronLeftIcon className="h-5 w-5 sm:h-7 sm:w-7" />
       </button>
       <button
         onClick={() => { goToNext(); }}
-        className="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 sm:p-3 rounded-full hover:bg-opacity-50 focus:outline-none focus:ring-2 focus:ring-white transition-opacity"
+        className="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 bg-black/40 hover:bg-black/70 backdrop-blur-md text-white p-2.5 sm:p-3.5 rounded-2xl border border-white/20 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white transition-all shadow-lg"
         aria-label={t('heroSlider.nextArrow')}
       >
-        <ChevronRightIcon className="h-6 w-6 sm:h-8 sm:w-8" />
+        <ChevronRightIcon className="h-5 w-5 sm:h-7 sm:w-7" />
       </button>
 
       {/* Dot Navigation */}
-      <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3">
+      <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex items-center space-x-2 sm:space-x-3 bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => { goToSlide(index); }}
-            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ease-in-out
-              ${currentIndex === index ? 'bg-white scale-125' : 'bg-white bg-opacity-50 hover:bg-opacity-75'}
+            className={`transition-all duration-300 ease-in-out rounded-full
+              ${currentIndex === index ? 'w-6 sm:w-8 h-2 sm:h-2.5 bg-brand-cyan-light' : 'w-2 sm:w-2.5 h-2 sm:h-2.5 bg-white/50 hover:bg-white/80'}
             `}
             aria-label={`${t('heroSlider.goToSlide')} ${index + 1}`}
             aria-current={currentIndex === index ? 'true' : 'false'}

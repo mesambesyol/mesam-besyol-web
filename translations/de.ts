@@ -140,7 +140,7 @@ export const deTranslations: TrTranslations = {
     beforeAfterTitle: "Sehen Sie die Transformationen",
     beforeAfterSubtitle: "Ästhetische und funktionelle Ergebnisse, die mit unseren Behandlungen erzielt wurden.",
     beforeAfterDisclaimer: "Die Ergebnisse bei jedem chirurgischen oder interventionellen Eingriff können von Person zu Person variieren. Es wird empfohlen, vor dem Eingriff ausführlich Ihren Arzt zu konsultieren.",
-    beforeAfterCaseInfo: "Verfahren: Ästhetische Komposit-Restauration | Reales klinisches Fallbeispiel",
+    beforeAfterCaseInfo: "Klinisches Fallbeispiel",
     beforeAlt: "Ansicht vor der Behandlung",
     afterAlt: "Ansicht nach der Behandlung",
     faqTitle: "Häufig gestellte Fragen",

@@ -19,27 +19,27 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFeatured = false }
       to={`/hizmetlerimiz/${service.id}`}
       className="block group h-full"
     >
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1.5">
+      <div className="bg-white rounded-2xl border border-slate-100 shadow-md overflow-hidden flex flex-col h-full transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-brand-blue/10 group-hover:-translate-y-1.5">
         {isFeatured ? (
-          <div className="flex-shrink-0 h-48 w-full flex items-center justify-center bg-brand-blue-light p-4 overflow-hidden">
-            {React.cloneElement(service.icon, { className: "w-16 h-16 text-brand-teal mb-4 transition-transform duration-300 group-hover:scale-110" })}
+          <div className="flex-shrink-0 h-48 w-full flex items-center justify-center bg-gradient-to-br from-brand-blue-light/60 to-brand-cyan-light/30 p-4 overflow-hidden">
+            {React.cloneElement(service.icon, { className: "w-16 h-16 text-brand-teal mb-2 transition-transform duration-300 group-hover:scale-110" })}
           </div>
         ) : (
-          <div className="h-48 overflow-hidden flex-shrink-0">
-            <img className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" src={service.imageUrl} alt={name} loading="lazy" />
+          <div className="h-48 overflow-hidden flex-shrink-0 relative">
+            <img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src={service.imageUrl} alt={name} loading="lazy" />
           </div>
         )}
         <div className="p-6 flex flex-col flex-grow">
           {/* Fixed height for title (approx 2 lines) to ensure alignment */}
-          <h3 className="text-xl font-semibold text-brand-blue mb-2 group-hover:text-brand-teal transition-colors line-clamp-2 h-14 overflow-hidden">
+          <h3 className="text-xl font-bold text-slate-800 mb-2 group-hover:text-brand-blue transition-colors line-clamp-2 h-14 overflow-hidden tracking-tight">
             {name}
           </h3>
           {/* Fixed height for description (approx 3-4 lines) to ensure alignment */}
-          <p className="text-gray-600 text-sm mb-4 line-clamp-3 h-20 overflow-hidden">
+          <p className="text-slate-600 text-sm mb-5 line-clamp-3 h-20 overflow-hidden leading-relaxed">
             {description}
           </p>
-          <div className="mt-auto">
-             <span className="inline-block text-center bg-brand-blue-light/80 backdrop-blur-sm text-brand-blue px-4 py-2 rounded-full group-hover:bg-brand-teal/90 group-hover:text-white transition-colors text-sm font-medium w-full">
+          <div className="mt-auto pt-2">
+             <span className="inline-flex items-center justify-center text-center bg-slate-50 border border-slate-200/80 text-brand-blue font-semibold px-4 py-2.5 rounded-xl group-hover:bg-gradient-to-r group-hover:from-brand-teal group-hover:to-teal-600 group-hover:border-transparent group-hover:text-white group-hover:shadow-md group-hover:shadow-teal-500/20 transition-all duration-200 text-sm w-full">
               {isFeatured ? t('buttons.moreInfo') : t('buttons.viewDetails')}
             </span>
           </div>

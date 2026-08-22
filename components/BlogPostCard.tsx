@@ -24,30 +24,30 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
 
   return (
     <ReactRouterDom.Link to={`/blog/${post.slug}`} className="block group h-full" aria-label={`${t('buttons.readMore')} ${title}`}>
-      <div className="flex flex-col h-full bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1.5">
-        <div className="flex-shrink-0 h-48 overflow-hidden">
-          <img className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" src={post.imageUrl} alt={title} loading="lazy" />
+      <div className="flex flex-col h-full bg-white rounded-2xl border border-slate-100 shadow-md overflow-hidden transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-brand-blue/10 group-hover:-translate-y-1.5">
+        <div className="flex-shrink-0 h-52 overflow-hidden relative">
+          <img className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" src={post.imageUrl} alt={title} loading="lazy" />
         </div>
         <div className="p-6 flex flex-col flex-grow">
-          <h3 className="text-lg font-semibold text-brand-blue mb-2 group-hover:text-brand-teal transition-colors">
-            {title}
-          </h3>
-          <div className="text-xs text-gray-500 mb-3 flex items-center flex-wrap gap-x-3 gap-y-1">
+          <div className="text-xs font-medium text-slate-500 mb-3 flex items-center flex-wrap gap-x-3 gap-y-1">
             <time dateTime={post.date} className="flex items-center">
-              <CalendarDaysIcon className="w-4 h-4 mr-1.5 text-gray-400" />
+              <CalendarDaysIcon className="w-3.5 h-3.5 mr-1.5 text-brand-teal" />
               {formatDate(post.date)}
             </time>
             {authorDisplay && (
               <span className="flex items-center">
-                <UserCircleIcon className="w-4 h-4 mr-1.5 text-gray-400" />
+                <UserCircleIcon className="w-3.5 h-3.5 mr-1.5 text-brand-teal" />
                 {authorDisplay}
               </span>
             )}
           </div>
-          <p className="text-sm text-gray-600 flex-grow mb-4">{summary}</p>
-          <div className="mt-auto">
-            <span className="text-sm font-semibold text-brand-teal group-hover:underline">
-              {t('buttons.readMore')}
+          <h3 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-brand-blue transition-colors line-clamp-2 tracking-tight">
+            {title}
+          </h3>
+          <p className="text-sm text-slate-600 flex-grow mb-5 line-clamp-3 leading-relaxed">{summary}</p>
+          <div className="mt-auto pt-2">
+            <span className="inline-flex items-center text-sm font-semibold text-brand-teal group-hover:text-brand-blue transition-colors">
+              {t('buttons.readMore')} →
             </span>
           </div>
         </div>

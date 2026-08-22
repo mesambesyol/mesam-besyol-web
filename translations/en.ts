@@ -140,7 +140,7 @@ export const enTranslations: TrTranslations = {
     beforeAfterTitle: "See the Transformations",
     beforeAfterSubtitle: "Aesthetic and functional results achieved with our treatments.",
     beforeAfterDisclaimer: "Results in every surgical or interventional procedure may vary from person to person. It is recommended to consult your physician in detail before the procedure.",
-    beforeAfterCaseInfo: "Procedure: Aesthetic Composite Restoration | Real Clinical Case Example",
+    beforeAfterCaseInfo: "Clinical Case Example",
     beforeAlt: "Before Treatment View",
     afterAlt: "After Treatment View",
     faqTitle: "Frequently Asked Questions",

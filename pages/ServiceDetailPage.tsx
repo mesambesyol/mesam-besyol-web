@@ -20,7 +20,7 @@ const ServiceDetailPage: React.FC = () => {
         <p className="text-gray-600 mb-6">{t('serviceDetailPage.notFoundText')}</p>
         <ReactRouterDom.Link 
           to="/hizmetlerimiz"
-          className="inline-block bg-brand-teal text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition-colors font-medium"
+          className="inline-flex items-center justify-center bg-gradient-to-r from-brand-teal to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-7 py-3 rounded-xl shadow-md font-semibold"
         >
           {t('serviceDetailPage.backToServices')}
         </ReactRouterDom.Link>
@@ -37,10 +37,10 @@ const ServiceDetailPage: React.FC = () => {
       <div className="bg-stone-100 py-12 sm:py-16">
         <PageContainer>
           <div className="max-w-4xl mx-auto">
-              <div className="bg-white p-6 sm:p-10 rounded-lg shadow-lg">
+              <div className="bg-white p-6 sm:p-10 rounded-2xl border border-slate-100 shadow-xl">
                 <article>
                     <div className="mb-8">
-                        <ReactRouterDom.Link to="/hizmetlerimiz" className="text-sm font-semibold text-brand-teal hover:text-brand-blue transition-colors">
+                        <ReactRouterDom.Link to="/hizmetlerimiz" className="inline-flex items-center text-sm font-semibold text-brand-teal hover:text-brand-blue transition-colors">
                         &larr; {t('serviceDetailPage.backToServices')}
                         </ReactRouterDom.Link>
                     </div>
@@ -51,7 +51,7 @@ const ServiceDetailPage: React.FC = () => {
                     <img 
                         src={service.imageUrl} 
                         alt={name} 
-                        className="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-md mb-8" 
+                        className="w-full h-auto max-h-[500px] object-cover rounded-xl shadow-md mb-8" 
                         loading="lazy"
                     />
 

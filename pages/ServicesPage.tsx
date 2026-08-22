@@ -39,11 +39,11 @@ const ServicesPage: React.FC = () => {
   }, [categories]);
 
   const getTabClasses = (categoryKey: string) => {
-    const baseClasses = "px-4 py-2 text-sm sm:text-base font-semibold rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-blue focus:ring-white";
+    const baseClasses = "px-5 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-blue focus:ring-white active:scale-95";
     if (selectedCategory === categoryKey) {
-      return `${baseClasses} bg-white/80 backdrop-blur-md text-brand-blue shadow-md`;
+      return `${baseClasses} bg-white text-brand-blue shadow-lg shadow-black/10 scale-105`;
     }
-    return `${baseClasses} bg-white/20 backdrop-blur-md text-white hover:bg-white/30`;
+    return `${baseClasses} bg-white/15 backdrop-blur-md text-white border border-white/20 hover:bg-white/25 hover:border-white/40`;
   };
 
   return (

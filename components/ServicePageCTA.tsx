@@ -10,34 +10,30 @@ const ServicePageCTA: React.FC = () => {
     const whatsappLink = `https://wa.me/905366549868`;
 
     return (
-        <div className="bg-brand-blue rounded-lg shadow-xl">
+        <div className="bg-gradient-to-br from-brand-blue to-sky-900 rounded-3xl shadow-2xl overflow-hidden border border-white/10">
             <div className="max-w-4xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
                 <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
                     <span className="block">{t('serviceDetailPage.ctaTitle')}</span>
                 </h2>
-                <p className="mt-4 text-lg leading-6 text-sky-200">
+                <p className="mt-4 text-lg leading-relaxed text-sky-100 max-w-2xl mx-auto">
                     {t('serviceDetailPage.ctaSubtitle')}
                 </p>
                 <div className="mt-8 flex justify-center flex-wrap gap-4">
-                    <div className="inline-flex rounded-full shadow">
-                        <ReactRouterDom.Link
-                            to="/randevu"
-                            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-brand-blue bg-white/80 hover:bg-white backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-                        >
-                            {t('buttons.appointment')}
-                        </ReactRouterDom.Link>
-                    </div>
-                    <div className="inline-flex rounded-full">
-                        <a
-                            href={whatsappLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-brand-teal/80 hover:bg-brand-teal backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-                        >
-                            <WhatsAppIcon className="w-5 h-5" />
-                            {t('header.whatsappLine')}
-                        </a>
-                    </div>
+                    <ReactRouterDom.Link
+                        to="/randevu"
+                        className="inline-flex items-center justify-center px-7 py-3.5 border border-white/80 text-base font-semibold rounded-xl text-brand-blue bg-white hover:bg-sky-50 shadow-lg shadow-black/10 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+                    >
+                        {t('buttons.appointment')}
+                    </ReactRouterDom.Link>
+                    <a
+                        href={whatsappLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-emerald-400/30 text-base font-semibold rounded-xl text-white bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 shadow-lg shadow-emerald-950/30 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+                    >
+                        <WhatsAppIcon className="w-5 h-5" />
+                        {t('header.whatsappLine')}
+                    </a>
                 </div>
             </div>
         </div>

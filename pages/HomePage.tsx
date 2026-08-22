@@ -63,7 +63,7 @@ const HomePage: React.FC = () => {
               </p>
               <ReactRouterDom.Link
                 to="/hakkimizda"
-                className="inline-block bg-brand-blue/80 text-white px-6 py-3 rounded-full hover:bg-brand-blue backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg font-medium"
+                className="inline-flex items-center justify-center bg-gradient-to-r from-brand-blue to-sky-700 hover:from-brand-blue hover:to-sky-800 text-white px-7 py-3 rounded-xl shadow-md shadow-brand-blue/20 hover:shadow-lg hover:shadow-brand-blue/30 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 font-semibold text-sm"
               >
                 {t('buttons.moreInfo')}
               </ReactRouterDom.Link>
@@ -79,7 +79,7 @@ const HomePage: React.FC = () => {
           <div className="text-center mt-12">
             <ReactRouterDom.Link
               to="/hekimlerimiz"
-              className="inline-block bg-brand-blue/80 text-white px-8 py-3 rounded-full hover:bg-brand-blue backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg font-medium text-lg"
+              className="inline-flex items-center justify-center bg-gradient-to-r from-brand-blue to-sky-700 hover:from-brand-blue hover:to-sky-800 text-white px-8 py-3.5 rounded-xl shadow-md shadow-brand-blue/20 hover:shadow-lg hover:shadow-brand-blue/30 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 font-semibold"
             >
               {t('buttons.allDoctors')}
             </ReactRouterDom.Link>
@@ -98,7 +98,7 @@ const HomePage: React.FC = () => {
           <div className="text-center mt-12">
             <ReactRouterDom.Link
               to="/hizmetlerimiz"
-              className="inline-block bg-brand-blue/80 text-white px-8 py-3 rounded-full hover:bg-brand-blue backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg font-medium text-lg"
+              className="inline-flex items-center justify-center bg-white text-brand-blue hover:bg-sky-50 px-8 py-3.5 rounded-xl shadow-lg shadow-black/10 hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 active:scale-95 font-semibold"
             >
               {t('buttons.allServices')}
             </ReactRouterDom.Link>
@@ -141,7 +141,7 @@ const HomePage: React.FC = () => {
            <div className="text-center mt-12">
             <ReactRouterDom.Link
               to="/blog"
-              className="inline-block bg-brand-blue/80 text-white px-8 py-3 rounded-full hover:bg-brand-blue backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg font-medium text-lg"
+              className="inline-flex items-center justify-center bg-gradient-to-r from-brand-blue to-sky-700 hover:from-brand-blue hover:to-sky-800 text-white px-8 py-3.5 rounded-xl shadow-md shadow-brand-blue/20 hover:shadow-lg hover:shadow-brand-blue/30 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 font-semibold"
             >
               {t('buttons.allPosts')}
             </ReactRouterDom.Link>

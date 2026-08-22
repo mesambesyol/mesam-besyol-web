@@ -138,7 +138,7 @@ export const trTranslations = {
     beforeAfterTitle: "Dönüşümleri Görün",
     beforeAfterSubtitle: "Tedavilerimizle elde ettiğimiz estetik ve fonksiyonel sonuçlar.",
     beforeAfterDisclaimer: "Her cerrahi veya girişimsel işlemde sonuçlar kişiden kişiye değişiklik gösterebilir. İşlem öncesinde hekiminizden detaylı görüş almanız önerilir.",
-    beforeAfterCaseInfo: "Uygulama: Estetik Kompozit Restorasyon | Gerçek Klinik Vaka Örneği",
+    beforeAfterCaseInfo: "Klinik Vaka Örneği",
     beforeAlt: "Tedavi Öncesi Görünüm",
     afterAlt: "Tedavi Sonrası Görünüm",
     faqTitle: "Sıkça Sorulan Sorular",

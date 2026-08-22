@@ -106,41 +106,41 @@ const AppointmentPage: React.FC = () => {
                   onSubmit={handleSubmit}
                   action="https://formspree.io/f/xgvzjnjv"
                   method="POST"
-                  className="bg-white p-8 rounded-lg shadow-xl space-y-6"
+                  className="bg-white p-8 rounded-2xl border border-slate-100 shadow-2xl space-y-6"
                 >
                   {/* Hidden input to store the final time */}
                   <input type="hidden" name="appointmentTime" value={appointmentTime} />
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="patientName" className="block text-sm font-medium text-gray-700">
+                      <label htmlFor="patientName" className="block text-sm font-semibold text-slate-700">
                         {t('appointmentForm.firstName')} <span className="text-red-500">*</span>
                       </label>
-                      <input type="text" name="patientName" id="patientName" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-teal focus:border-brand-teal sm:text-sm bg-white" />
+                      <input type="text" name="patientName" id="patientName" required className="mt-1.5 block w-full px-4 py-2.5 border border-slate-200 rounded-xl shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal/20 focus:border-brand-teal text-sm bg-white transition-colors" />
                     </div>
                     <div>
-                      <label htmlFor="patientSurname" className="block text-sm font-medium text-gray-700">
+                      <label htmlFor="patientSurname" className="block text-sm font-semibold text-slate-700">
                         {t('appointmentForm.lastName')} <span className="text-red-500">*</span>
                       </label>
-                      <input type="text" name="patientSurname" id="patientSurname" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-teal focus:border-brand-teal sm:text-sm bg-white" />
+                      <input type="text" name="patientSurname" id="patientSurname" required className="mt-1.5 block w-full px-4 py-2.5 border border-slate-200 rounded-xl shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal/20 focus:border-brand-teal text-sm bg-white transition-colors" />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="patientPhone" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="patientPhone" className="block text-sm font-semibold text-slate-700">
                       {t('appointmentForm.phone')} <span className="text-red-500">*</span>
                     </label>
-                    <input type="tel" name="patientPhone" id="patientPhone" required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-teal focus:border-brand-teal sm:text-sm bg-white" />
+                    <input type="tel" name="patientPhone" id="patientPhone" required className="mt-1.5 block w-full px-4 py-2.5 border border-slate-200 rounded-xl shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal/20 focus:border-brand-teal text-sm bg-white transition-colors" />
                   </div>
                   <div>
-                    <label htmlFor="patientEmail" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="patientEmail" className="block text-sm font-semibold text-slate-700">
                       {t('appointmentForm.emailOptional')}
                     </label>
-                    <input type="email" name="email" id="patientEmail" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-teal focus:border-brand-teal sm:text-sm bg-white" />
+                    <input type="email" name="email" id="patientEmail" className="mt-1.5 block w-full px-4 py-2.5 border border-slate-200 rounded-xl shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal/20 focus:border-brand-teal text-sm bg-white transition-colors" />
                   </div>
 
                   <div>
-                    <label htmlFor="doctorId" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="doctorId" className="block text-sm font-semibold text-slate-700">
                       {t('appointmentForm.doctorSelection')} <span className="text-red-500">*</span>
                     </label>
                     <select
@@ -148,8 +148,8 @@ const AppointmentPage: React.FC = () => {
                       id="doctorId"
                       required
                       defaultValue=""
-                      className={`mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-teal focus:border-brand-teal sm:text-sm appearance-none bg-white bg-no-repeat bg-right pr-8 text-gray-500`}
-                      style={{ backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`, backgroundPosition: 'right 0.5rem center', backgroundSize: '1.5em 1.5em' }}
+                      className={`mt-1.5 block w-full px-4 py-2.5 border border-slate-200 rounded-xl shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal/20 focus:border-brand-teal text-sm appearance-none bg-white bg-no-repeat bg-right pr-8 text-gray-500 transition-colors`}
+                      style={{ backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`, backgroundPosition: 'right 0.75rem center', backgroundSize: '1.25em 1.25em' }}
                       onChange={(e) => { e.target.classList.toggle('text-gray-500', !e.target.value); e.target.classList.toggle('text-gray-900', !!e.target.value);}}
                     >
                       <option value="" disabled>{t('appointmentForm.selectDoctorPlaceholder')}</option>
@@ -161,13 +161,13 @@ const AppointmentPage: React.FC = () => {
                   
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="md:col-span-1">
-                      <label htmlFor="appointmentDate" className="block text-sm font-medium text-gray-700">
+                      <label htmlFor="appointmentDate" className="block text-sm font-semibold text-slate-700">
                         {t('appointmentForm.appointmentDate')} <span className="text-red-500">*</span>
                       </label>
-                      <input type="date" name="appointmentDate" id="appointmentDate" min={minDate} defaultValue={minDate} required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-teal focus:border-brand-teal sm:text-sm bg-white" />
+                      <input type="date" name="appointmentDate" id="appointmentDate" min={minDate} defaultValue={minDate} required className="mt-1.5 block w-full px-4 py-2.5 border border-slate-200 rounded-xl shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal/20 focus:border-brand-teal text-sm bg-white transition-colors" />
                     </div>
                     <div className="md:col-span-1">
-                      <label htmlFor="appointmentHourRange" className="block text-sm font-medium text-gray-700">
+                      <label htmlFor="appointmentHourRange" className="block text-sm font-semibold text-slate-700">
                         {t('appointmentForm.appointmentHourRange')} <span className="text-red-500">*</span>
                       </label>
                       <select
@@ -175,8 +175,8 @@ const AppointmentPage: React.FC = () => {
                         name="appointmentHourRange"
                         value={selectedHourRange}
                         onChange={handleHourRangeChange}
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-teal focus:border-brand-teal sm:text-sm appearance-none bg-white bg-no-repeat bg-right pr-8 text-gray-500"
-                        style={{ backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`, backgroundPosition: 'right 0.5rem center', backgroundSize: '1.5em 1.5em' }}
+                        className="mt-1.5 block w-full px-4 py-2.5 border border-slate-200 rounded-xl shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal/20 focus:border-brand-teal text-sm appearance-none bg-white bg-no-repeat bg-right pr-8 text-gray-500 transition-colors"
+                        style={{ backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`, backgroundPosition: 'right 0.75rem center', backgroundSize: '1.25em 1.25em' }}
                         required
                       >
                         <option value="" disabled>{t('appointmentForm.selectHourRangePlaceholder')}</option>
@@ -186,7 +186,7 @@ const AppointmentPage: React.FC = () => {
                       </select>
                     </div>
                     <div className="md:col-span-1">
-                      <label htmlFor="appointmentTimeSelect" className="block text-sm font-medium text-gray-700">
+                      <label htmlFor="appointmentTimeSelect" className="block text-sm font-semibold text-slate-700">
                         {t('appointmentForm.appointmentTime')} <span className="text-red-500">*</span>
                       </label>
                       <select
@@ -196,8 +196,8 @@ const AppointmentPage: React.FC = () => {
                         onChange={(e) => setAppointmentTime(e.target.value)}
                         disabled={!selectedHourRange}
                         required
-                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-teal focus:border-brand-teal sm:text-sm appearance-none bg-white bg-no-repeat bg-right pr-8 text-gray-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
-                        style={{ backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`, backgroundPosition: 'right 0.5rem center', backgroundSize: '1.5em 1.5em' }}
+                        className="mt-1.5 block w-full px-4 py-2.5 border border-slate-200 rounded-xl shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal/20 focus:border-brand-teal text-sm appearance-none bg-white bg-no-repeat bg-right pr-8 text-gray-500 disabled:bg-gray-100 disabled:cursor-not-allowed transition-colors"
+                        style={{ backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`, backgroundPosition: 'right 0.75rem center', backgroundSize: '1.25em 1.25em' }}
                       >
                         <option value="" disabled>{t('appointmentForm.selectTimePlaceholder')}</option>
                         {timeSlots.map(time => (
@@ -209,19 +209,19 @@ const AppointmentPage: React.FC = () => {
                   <p className="!mt-2 text-xs text-gray-500 text-center">{t('appointmentForm.workingHours')}</p>
 
                   <div>
-                    <label htmlFor="notes" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="notes" className="block text-sm font-semibold text-slate-700">
                       {t('appointmentForm.additionalNotes')}
                     </label>
-                    <textarea name="notes" id="notes" rows={3} placeholder={t('appointmentForm.notesPlaceholder')} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-teal focus:border-brand-teal sm:text-sm bg-white"></textarea>
+                    <textarea name="notes" id="notes" rows={3} placeholder={t('appointmentForm.notesPlaceholder')} className="mt-1.5 block w-full px-4 py-2.5 border border-slate-200 rounded-xl shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal/20 focus:border-brand-teal text-sm bg-white transition-colors"></textarea>
                   </div>
 
                   <div>
-                    <button type="submit" disabled={status === "sending"} className="w-full flex justify-center py-3 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-brand-teal/80 hover:bg-brand-teal backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-teal transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg disabled:bg-gray-400 disabled:shadow-sm disabled:transform-none">
+                    <button type="submit" disabled={status === "sending"} className="w-full flex justify-center py-3.5 px-6 border border-teal-500/30 rounded-xl shadow-md shadow-teal-600/20 text-sm font-semibold text-white bg-gradient-to-r from-brand-teal to-teal-600 hover:from-teal-600 hover:to-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-teal transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-teal-600/30 active:scale-[0.98] disabled:bg-gray-400 disabled:shadow-none disabled:transform-none">
                       {status === "sending" ? t('general.loading') : t('appointmentForm.submitButton')}
                     </button>
                     <p className="mt-3 text-xs text-gray-500 text-center">{t('appointmentForm.submissionInfo')}</p>
                   </div>
-                  {status === "error" && <p className="text-red-500 text-sm mt-2 text-center">{t('general.error')}</p>}
+                  {status === "error" && <p className="text-red-500 text-sm mt-2 text-center font-medium">{t('general.error')}</p>}
                 </form>
             </div>
           </div>

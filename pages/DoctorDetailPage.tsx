@@ -33,7 +33,7 @@ const DoctorDetailPage: React.FC = () => {
         <p className="text-gray-600 mb-6">{t('doctorDetailPage.notFoundText')}</p>
         <ReactRouterDom.Link 
           to="/hekimlerimiz"
-          className="inline-block bg-brand-teal text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition-colors font-medium"
+          className="inline-flex items-center justify-center bg-gradient-to-r from-brand-teal to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-7 py-3 rounded-xl shadow-md transition-all duration-200 font-semibold"
         >
           {t('doctorDetailPage.backToDoctors')}
         </ReactRouterDom.Link>
@@ -51,14 +51,14 @@ const DoctorDetailPage: React.FC = () => {
         <PageContainer>
           <div className="max-w-6xl mx-auto">
             <div className="mb-8">
-              <ReactRouterDom.Link to="/hekimlerimiz" className="text-sm text-brand-teal hover:text-brand-blue transition-colors">
+              <ReactRouterDom.Link to="/hekimlerimiz" className="inline-flex items-center text-sm font-semibold text-brand-teal hover:text-brand-blue transition-colors">
                 &larr; {t('doctorDetailPage.backToDoctors')}
               </ReactRouterDom.Link>
             </div>
             
             <div className="grid lg:grid-cols-3 gap-x-12 gap-y-8">
               <aside className="lg:col-span-1 lg:sticky lg:top-20 self-start">
-                <div className="bg-white rounded-lg shadow-xl overflow-hidden">
+                <div className="bg-white rounded-2xl border border-slate-100 shadow-xl overflow-hidden">
                   <div className="aspect-w-1 aspect-h-1">
                     {hasRealImage ? (
                       <img
@@ -74,11 +74,11 @@ const DoctorDetailPage: React.FC = () => {
                     )}
                   </div>
                   <div className="p-6 text-center">
-                    <h1 className="text-2xl font-bold text-brand-blue mb-1">{doctor.name}</h1>
-                    <p className="text-brand-teal mb-6">{title}</p>
+                    <h1 className="text-2xl font-bold text-slate-800 mb-1">{doctor.name}</h1>
+                    <p className="text-brand-teal font-medium mb-6">{title}</p>
                     <ReactRouterDom.Link 
                       to="/randevu"
-                      className="w-full inline-block bg-brand-teal/80 text-white px-6 py-3 rounded-full hover:bg-brand-teal backdrop-blur-md transition-colors font-medium"
+                      className="w-full inline-flex items-center justify-center bg-gradient-to-r from-brand-teal to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-6 py-3.5 rounded-xl shadow-md shadow-teal-600/20 hover:shadow-lg hover:shadow-teal-600/30 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 font-semibold text-sm"
                     >
                       {t('buttons.appointment')}
                     </ReactRouterDom.Link>
@@ -89,19 +89,19 @@ const DoctorDetailPage: React.FC = () => {
               <main className="lg:col-span-2">
                 {doctor.details ? (
                   <>
-                    <div className="bg-white rounded-lg shadow-xl p-8 mb-8">
-                      <p className="text-lg text-gray-700 leading-relaxed">{getLocalized(doctor.details.introduction)}</p>
+                    <div className="bg-white rounded-2xl border border-slate-100 shadow-xl p-8 mb-8">
+                      <p className="text-lg text-slate-700 leading-relaxed">{getLocalized(doctor.details.introduction)}</p>
                     </div>
                     <div className="space-y-8">
                       {doctor.details.sections.map((section, index) => (
-                        <div key={index} className="bg-white rounded-lg shadow-xl overflow-hidden">
+                        <div key={index} className="bg-white rounded-2xl border border-slate-100 shadow-xl overflow-hidden">
                           <div className="p-6 sm:p-8">
                             <div className="flex items-center mb-4">
                               {getSectionIcon(section.icon)}
-                              <h2 className="text-2xl font-bold text-brand-blue">{getLocalized(section.title)}</h2>
+                              <h2 className="text-2xl font-bold text-slate-800">{getLocalized(section.title)}</h2>
                             </div>
                             <div
-                              className="prose max-w-none text-gray-600 [&_ul]:pl-2 [&_li]:mb-1"
+                              className="prose max-w-none text-slate-600 [&_ul]:pl-2 [&_li]:mb-1"
                               dangerouslySetInnerHTML={{ __html: getLocalized(section.content) }}
                             />
                           </div>
@@ -110,8 +110,8 @@ const DoctorDetailPage: React.FC = () => {
                     </div>
                   </>
                 ) : (
-                  <div className="bg-white rounded-lg shadow-xl p-8">
-                    <p className="text-gray-700">{getLocalized(doctor.bio)}</p>
+                  <div className="bg-white rounded-2xl border border-slate-100 shadow-xl p-8">
+                    <p className="text-slate-700 leading-relaxed">{getLocalized(doctor.bio)}</p>
                   </div>
                 )}
               </main>

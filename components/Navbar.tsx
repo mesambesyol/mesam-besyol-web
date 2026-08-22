@@ -233,14 +233,14 @@ const Navbar: React.FC = () => {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-2 xl:ml-4 inline-flex items-center justify-center gap-2 px-3 xl:px-4 py-2 border border-transparent rounded-full shadow-sm text-[12px] font-medium text-white bg-green-500/80 hover:bg-green-600 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg cta-pulse"
+              className="ml-2 xl:ml-4 inline-flex items-center justify-center gap-2 px-3.5 xl:px-4 py-2 border border-emerald-400/40 rounded-full text-[12px] font-semibold text-white bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 shadow-md shadow-emerald-500/20 hover:shadow-lg hover:shadow-emerald-500/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 cta-pulse"
             >
-              <WhatsAppIcon className="w-5 h-5" />
+              <WhatsAppIcon className="w-4 h-4" />
               <span className="hidden xl:inline">{t('header.whatsappLine')}</span>
             </a>
             <ReactRouterDom.Link
               to="/randevu" 
-              className="inline-flex items-center justify-center px-3 xl:px-4 py-2 border border-transparent rounded-full shadow-sm text-[12px] font-medium text-white bg-brand-teal/80 hover:bg-brand-teal backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+              className="inline-flex items-center justify-center px-3.5 xl:px-4 py-2 border border-teal-400/40 rounded-full text-[12px] font-semibold text-white bg-gradient-to-r from-brand-teal to-teal-700 hover:from-teal-600 hover:to-teal-800 shadow-md shadow-teal-500/20 hover:shadow-lg hover:shadow-teal-500/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200"
             >
               {t('buttons.appointment')}
             </ReactRouterDom.Link>

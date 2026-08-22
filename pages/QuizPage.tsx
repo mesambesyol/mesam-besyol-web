@@ -120,7 +120,7 @@ const QuizPage: React.FC = () => {
              <AnimatedItem className="text-center mt-12">
               <button
                 onClick={restartQuiz}
-                className="inline-block bg-brand-teal/80 text-white px-8 py-3 rounded-full hover:bg-brand-teal backdrop-blur-md transition-colors font-medium text-lg"
+                className="inline-flex items-center justify-center bg-gradient-to-r from-brand-teal to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-8 py-3.5 rounded-xl shadow-md shadow-teal-600/20 hover:shadow-lg hover:shadow-teal-600/30 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 font-semibold text-base"
               >
                 {t('quizPage.restartQuiz')}
               </button>
@@ -144,25 +144,25 @@ const QuizPage: React.FC = () => {
           </AnimatedItem>
           
           <AnimatedItem>
-            <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md mb-8 max-w-4xl mx-auto" role="alert">
-                <p className="font-bold">{t('quizPage.importantNoteTitle')}</p>
-                <p className="text-sm">{t('quizPage.importantNoteText')}</p>
+            <div className="bg-amber-50 border border-amber-200 text-amber-900 p-4 rounded-xl mb-8 max-w-4xl mx-auto shadow-xs" role="alert">
+                <p className="font-bold text-amber-900 mb-1">{t('quizPage.importantNoteTitle')}</p>
+                <p className="text-sm text-amber-800 leading-relaxed">{t('quizPage.importantNoteText')}</p>
             </div>
           </AnimatedItem>
 
           <AnimatedItem>
-            <div className="max-w-2xl mx-auto bg-white/50 backdrop-blur-lg p-6 sm:p-8 rounded-xl shadow-2xl border border-white/30">
+            <div className="max-w-2xl mx-auto bg-white/80 backdrop-blur-xl p-6 sm:p-8 rounded-2xl shadow-xl border border-white/60">
                 <div className="mb-6">
-                    <div className="flex justify-between items-center mb-2 text-sm text-gray-600">
+                    <div className="flex justify-between items-center mb-2 text-sm font-semibold text-slate-600">
                         <span>{t('quizPage.question')} {currentQuestionIndex + 1} {t('quizPage.of')} {shuffledQuestions.length}</span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2.5">
-                        <div className="bg-brand-teal h-2.5 rounded-full transition-all duration-300" style={{ width: `${progressPercentage}%` }}></div>
+                    <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                        <div className="bg-gradient-to-r from-brand-teal to-teal-500 h-2.5 rounded-full transition-all duration-300" style={{ width: `${progressPercentage}%` }}></div>
                     </div>
                 </div>
 
                 <div className="min-h-[100px] flex items-center">
-                     <h3 className="text-lg md:text-xl font-semibold text-brand-blue text-center w-full">{getLocalized(currentQuestion.question)}</h3>
+                     <h3 className="text-lg md:text-xl font-bold text-slate-800 text-center w-full leading-snug">{getLocalized(currentQuestion.question)}</h3>
                 </div>
                
                 <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -170,9 +170,9 @@ const QuizPage: React.FC = () => {
                         <button
                             key={index}
                             onClick={() => handleAnswerSelect(index)}
-                            className="w-full text-left p-4 rounded-xl border-2 border-white/20 bg-white/50 backdrop-blur-md hover:bg-brand-blue-light hover:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2 transition-all duration-150"
+                            className="w-full text-left p-4 rounded-xl border border-slate-200/80 bg-white hover:bg-sky-50/60 hover:border-brand-teal/50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2 transition-all duration-150 group active:scale-[0.98]"
                         >
-                            <span className="font-medium text-gray-700">{getLocalized(option)}</span>
+                            <span className="font-medium text-slate-700 group-hover:text-brand-blue">{getLocalized(option)}</span>
                         </button>
                     ))}
                 </div>

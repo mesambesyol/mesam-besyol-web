@@ -38,66 +38,66 @@ const ContactForm: React.FC = () => {
       onSubmit={handleSubmit}
       action="https://formspree.io/f/xgvzjnjv"
       method="POST"
-      className="space-y-6 bg-white p-8 rounded-lg shadow-lg"
+      className="space-y-6 bg-white p-8 rounded-2xl border border-slate-100 shadow-xl"
     >
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700">{t('contactForm.fullName')}</label>
+        <label htmlFor="name" className="block text-sm font-semibold text-slate-700">{t('contactForm.fullName')}</label>
         <input
           type="text"
           name="name"
           id="name"
           required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-teal focus:border-brand-teal sm:text-sm bg-white"
+          className="mt-1.5 block w-full px-4 py-2.5 border border-slate-200 rounded-xl shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal/20 focus:border-brand-teal text-sm bg-white transition-colors"
         />
       </div>
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700">{t('contactForm.emailOptional')}</label>
+        <label htmlFor="email" className="block text-sm font-semibold text-slate-700">{t('contactForm.emailOptional')}</label>
         <input
           type="email"
           name="email"
           id="email"
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-teal focus:border-brand-teal sm:text-sm bg-white"
+          className="mt-1.5 block w-full px-4 py-2.5 border border-slate-200 rounded-xl shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal/20 focus:border-brand-teal text-sm bg-white transition-colors"
         />
       </div>
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700">{t('contactForm.phone')}</label>
+        <label htmlFor="phone" className="block text-sm font-semibold text-slate-700">{t('contactForm.phone')}</label>
         <input
           type="tel"
           name="phone"
           id="phone"
           required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-teal focus:border-brand-teal sm:text-sm bg-white"
+          className="mt-1.5 block w-full px-4 py-2.5 border border-slate-200 rounded-xl shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal/20 focus:border-brand-teal text-sm bg-white transition-colors"
         />
       </div>
       <div>
-        <label htmlFor="subject" className="block text-sm font-medium text-gray-700">{t('contactForm.subject')}</label>
+        <label htmlFor="subject" className="block text-sm font-semibold text-slate-700">{t('contactForm.subject')}</label>
         <input
           type="text"
           name="subject"
           id="subject"
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-teal focus:border-brand-teal sm:text-sm bg-white"
+          className="mt-1.5 block w-full px-4 py-2.5 border border-slate-200 rounded-xl shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal/20 focus:border-brand-teal text-sm bg-white transition-colors"
         />
       </div>
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700">{t('contactForm.message')}</label>
+        <label htmlFor="message" className="block text-sm font-semibold text-slate-700">{t('contactForm.message')}</label>
         <textarea
           name="message"
           id="message"
           rows={4}
           required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-teal focus:border-brand-teal sm:text-sm bg-white"
+          className="mt-1.5 block w-full px-4 py-2.5 border border-slate-200 rounded-xl shadow-xs focus:outline-none focus:ring-2 focus:ring-brand-teal/20 focus:border-brand-teal text-sm bg-white transition-colors"
         />
       </div>
       <div>
         <button
           type="submit"
           disabled={status === "sending"}
-          className="w-full flex justify-center py-3 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-brand-teal/80 hover:bg-brand-teal backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-teal transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg disabled:bg-gray-400 disabled:shadow-sm disabled:transform-none"
+          className="w-full flex justify-center py-3.5 px-6 border border-teal-500/30 rounded-xl shadow-md shadow-teal-600/20 text-sm font-semibold text-white bg-gradient-to-r from-brand-teal to-teal-600 hover:from-teal-600 hover:to-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-teal transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-teal-600/30 active:scale-[0.98] disabled:bg-gray-400 disabled:shadow-none disabled:transform-none"
         >
           {status === "sending" ? t('general.loading') : t('buttons.sendMessage')}
         </button>
       </div>
-       {status === "error" && <p className="text-red-500 text-sm mt-2 text-center">{t('general.error')}</p>}
+       {status === "error" && <p className="text-red-500 text-sm mt-2 text-center font-medium">{t('general.error')}</p>}
     </form>
   );
 };
