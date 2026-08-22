@@ -52,7 +52,7 @@ export const SERVICES_DATA: Service[] = [
         <h3 class="text-xl font-semibold text-brand-blue mt-8 mb-4">Avantajları Nelerdir?</h3>
          <ul class="list-disc list-inside space-y-2 mb-4">
           <li><strong>Kişiye Özeldir:</strong> Her tasarım, kişinin kendi yüz hatlarına ve estetik algısına göre özel olarak planlanır.</li>
-          <li><strong>Doğal Görünüm:</strong> Kullanılan modern materyaller (zirkonyum, e-max) doğal dişin ışık geçirgenliğini ve görünümünü mükemmel bir şekilde taklit eder.</li>
+          <li><strong>Doğal Görünüm:</strong> Kullanılan modern materyaller (zirkonyum, e-max) doğal dişin ışık geçirgenliğini ve görünümünü başarılı bir şekilde yansıtır.</li>
           <li><strong>Özgüven Artışı:</strong> Estetik ve çekici bir gülüş, sosyal ve profesyonel hayatta pozitif bir etki yaratarak özgüveni artırır.</li>
           <li><strong>Öngörülebilir Sonuçlar:</strong> Dijital tasarım sayesinde tedavi sonucunu baştan görerek sürprizlerle karşılaşmazsınız.</li>
         </ul>
@@ -339,13 +339,13 @@ export const SERVICES_DATA: Service[] = [
     longDescription: {
       tr: `
         <h2 class="text-2xl font-bold text-brand-blue mb-4">Estetik Diş Hekimliği Nedir?</h2>
-        <p class="mb-4">Estetik diş hekimliği, sadece ağız ve diş sağlığını korumakla kalmaz, aynı zamanda dişlerin ve gülüşün estetik görünümünü iyileştirmeyi hedefler. Dişlerin rengi, şekli, boyutu, dizilimi ve diş etleriyle olan uyumunu bir bütün olarak ele alarak, kişiye özel, doğal ve çekici bir gülümseme yaratır. Bu, fonksiyon ve estetiğin mükemmel bir birleşimidir.</p>
+        <p class="mb-4">Estetik diş hekimliği, sadece ağız ve diş sağlığını korumakla kalmaz, aynı zamanda dişlerin ve gülüşün estetik görünümünü iyileştirmeyi hedefler. Dişlerin rengi, şekli, boyutu, dizilimi ve diş etleriyle olan uyumunu bir bütün olarak ele alarak, kişiye özel, doğal ve estetik bir gülümseme oluşturmayı amaçlar. Bu, fonksiyon ve estetiğin uyumlu bir birleşimidir.</p>
 
         <h3 class="text-xl font-semibold text-brand-blue mt-8 mb-4">Sunduğumuz Estetik Çözümler</h3>
-        <p class="mb-4">Kliniğimizde, gülüşünüzü mükemmelleştirmek için çeşitli estetik tedavi seçenekleri sunuyoruz:</p>
+        <p class="mb-4">Kliniğimizde estetik görünümü desteklemek amacıyla çeşitli tedavi seçenekleri sunulmaktadır:</p>
         <ul class="list-disc list-inside space-y-2 mb-4">
-            <li><strong>Diş Beyazlatma (Bleaching):</strong> Klinik ortamında (ofis tipi) veya evde (ev tipi) uygulanan güvenli yöntemlerle dişlerinizin rengini açarak daha parlak ve canlı bir gülüş elde etmenizi sağlar.</li>
-            <li><strong>Porselen Laminalar (Veneers):</strong> Dişlerin ön yüzeyine yapıştırılan ince porselen yaprakçıklar ile renklenmeler, aralıklar, hafif çapraşıklıklar ve şekil bozuklukları minimal bir müdahale ile mükemmel bir şekilde düzeltilir.</li>
+            <li><strong>Diş Beyazlatma (Bleaching):</strong> Klinik ortamında (ofis tipi) veya evde (ev tipi) uygulanan güvenli yöntemlerle dişlerinizin rengini açarak daha canlı bir görünüm elde etmenizi sağlar.</li>
+            <li><strong>Porselen Laminalar (Veneers):</strong> Dişlerin ön yüzeyine yapıştırılan ince porselen yaprakçıklar ile renklenmeler, aralıklar, hafif çapraşıklıklar ve şekil bozuklukları minimal bir müdahale ile estetik bir şekilde düzeltilir.</li>
             <li><strong>Bonding (Kompozit Lamina):</strong> Diş rengindeki kompozit materyallerle küçük estetik kusurların (küçük kırıklar, aralıklar, şekil bozuklukları) genellikle tek seansta, dişe zarar vermeden düzeltilmesi işlemidir.</li>
             <li><strong>Zirkonyum ve E-max Kronlar:</strong> Metal içermeyen, yüksek ışık geçirgenliğine sahip bu kaplamalar, doğal diş görünümünü birebir taklit ederek hem estetik hem de dayanıklılığı bir arada sunar.</li>
             <li><strong>Pembe Estetik (Diş Eti Estetiği):</strong> Lazer veya küçük cerrahi müdahalelerle diş eti seviyelerinin ayarlanması, "gummy smile" (gülümserken diş etlerinin fazla görünmesi) gibi durumların düzeltilmesiyle ideal diş-diş eti uyumu sağlanır.</li>
@@ -451,7 +451,7 @@ export const SERVICES_DATA: Service[] = [
         
         <h3 class="text-xl font-semibold text-brand-blue mt-8 mb-4">Kliniğimizdeki Dijital Teknolojiler ve Avantajları</h3>
         <ul class="list-disc list-inside space-y-3 mb-4">
-            <li><strong>Ağız İçi Tarayıcılar (3D Scanners):</strong> Geleneksel ölçü alma yöntemlerinin neden olduğu bulantı ve rahatsızlık hissini ortadan kaldıran bu cihazlar, dişlerinizin üç boyutlu dijital modelini saniyeler içinde ve mikron hassasiyetinde oluşturur. Bu, protez ve restorasyonların mükemmel uyumlu olmasını sağlar.</li>
+            <li><strong>Ağız İçi Tarayıcılar (3D Scanners):</strong> Geleneksel ölçü alma yöntemlerinin neden olduğu rahatsızlık hissini ortadan kaldıran bu cihazlar, dişlerinizin üç boyutlu dijital modelini saniyeler içinde ve yüksek hassasiyette oluşturur. Bu, protez ve restorasyonların dişe yüksek uyumla hazırlanmasını sağlar.</li>
             <li><strong>CAD/CAM Sistemleri (Bilgisayar Destekli Tasarım ve Üretim):</strong> Ağız içi tarayıcıdan alınan dijital ölçü, bilgisayar ortamına aktarılır. Burada porselen veya zirkonyum kaplama, inley/onley dolgular gibi restorasyonlar hassas bir şekilde tasarlanır. Tasarım, klinikteki özel kazıyıcı (milling) cihaza gönderilerek restorasyon aynı gün içinde üretilebilir (örn: Cerec sistemi). Bu, "tek seansta diş hekimliği" imkanı sunar.</li>
             <li><strong>Yapay Zeka (AI) Destekli Teşhis:</strong> Yapay zeka algoritmaları, röntgen görüntülerindeki başlangıç seviyesindeki çürükleri, kistleri veya diğer patolojileri insan gözünden daha hassas bir şekilde tespit ederek erken teşhise ve daha koruyucu tedavilere olanak tanır.</li>
             <li><strong>Dijital Gülüş Tasarımı:</strong> Tedaviye başlamadan önce, dijital ortamda yüzünüzün ve dişlerinizin analizini yaparak, tedavi sonrası gülüşünüzün nasıl görüneceğini size simülasyonlarla gösterebiliriz. Bu, beklentilerinizin tam olarak karşılanmasını sağlar.</li>

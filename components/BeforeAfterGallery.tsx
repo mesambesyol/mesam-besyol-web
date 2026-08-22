@@ -49,7 +49,7 @@ const BeforeAfterGallery: React.FC = () => {
   }, []);
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto space-y-4">
       <div 
         ref={containerRef}
         className="relative w-full aspect-[4/3] sm:aspect-[16/9] overflow-hidden select-none group rounded-lg shadow-xl comparison-slider"
@@ -76,6 +76,17 @@ const BeforeAfterGallery: React.FC = () => {
             <svg className="w-6 h-6 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7l-4 4 4 4m8-8l4 4-4 4"></path></svg>
           </div>
         </div>
+      </div>
+
+      {/* Case Info and Mandatory Legal Disclaimer (Yönetmelik Madde 7 / 1-k) */}
+      <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center space-y-2">
+        <p className="text-xs sm:text-sm font-medium text-slate-700">
+          {t('homePage.beforeAfterCaseInfo')}
+        </p>
+        <p className="text-xs text-amber-800/90 bg-amber-50 border border-amber-200/60 rounded-lg p-2.5 leading-relaxed">
+          <span className="font-semibold">⚠️ Yasal Bilgilendirme: </span>
+          {t('homePage.beforeAfterDisclaimer')}
+        </p>
       </div>
     </div>
   );

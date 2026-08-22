@@ -71,10 +71,13 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="mt-8 border-t border-gray-700 pt-8 text-center">
-          <p className="text-sm">
+        <div className="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-400 space-y-2">
+          <p>
             &copy; {new Date().getFullYear()} {t('footer.copyright')}
           </p>
+          <div className="text-xs text-gray-400">
+            <span>{t('footer.lastUpdated')}</span>
+          </div>
         </div>
       </div>
     </footer>

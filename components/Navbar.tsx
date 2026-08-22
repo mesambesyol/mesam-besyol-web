@@ -61,8 +61,8 @@ const Navbar: React.FC = () => {
       : 'bg-white text-gray-800 shadow-lg'
   }`;
   
-  const logoClasses = `w-auto transition-all duration-300 h-10 lg:${
-    isScrolled || !isHomePage ? 'h-10' : 'h-12'
+  const logoClasses = `w-auto transition-all duration-300 cursor-pointer select-none ${
+    isScrolled || !isHomePage ? 'h-10 lg:h-10' : 'h-10 lg:h-12'
   }`;
 
   const headerHeightClasses = `h-20 lg:transition-all lg:duration-300 ${
@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
     const isActive = location.pathname === path;
     
     // Optimized padding: px-2 for LG, px-3 for XL to fit German text
-    const baseClasses = `px-2 xl:px-3 py-2 rounded-md text-[12px] font-semibold transition-colors`;
+    const baseClasses = `px-2 xl:px-3 py-2 rounded-md text-[12px] font-semibold transition-colors cursor-pointer select-none`;
     const themeClasses = isTransparent
       ? 'text-gray-800 hover:text-brand-blue [text-shadow:0_1px_2px_rgba(255,255,255,0.9)]'
       : 'text-gray-600 hover:text-brand-blue';
@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
     return `${baseClasses} ${themeClasses} ${activeClasses}`;
   };
   
-  const mobileMenuIconClasses = `p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset ${
+  const mobileMenuIconClasses = `p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset cursor-pointer ${
     isTransparent
       ? 'text-gray-800 hover:bg-black/10 focus:ring-brand-blue [filter:drop-shadow(0_1px_2px_rgba(255,255,255,0.9))]'
       : 'text-gray-800 hover:bg-gray-100 focus:ring-brand-blue'
@@ -93,6 +93,16 @@ const Navbar: React.FC = () => {
   // Function to scroll to top if user is already on home page
   const scrollToTopIfHome = () => {
     if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  // Function to navigate or scroll to top smoothly when logo is clicked
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -159,14 +169,15 @@ const Navbar: React.FC = () => {
           <div className="flex-shrink-0">
             <ReactRouterDom.Link 
               to="/" 
-              className="flex items-center" 
+              className="flex items-center cursor-pointer select-none group focus:outline-none" 
               aria-label={t('appName') + ' ' + t('navbar.home')}
-              onClick={scrollToTopIfHome}
+              onClick={handleLogoClick}
             >
               <img 
                 className={logoClasses}
                 src="https://i.imgur.com/ZjHgJSs.png" 
                 alt={`${t('appName')} Logo`}
+                draggable={false}
               />
             </ReactRouterDom.Link>
           </div>
