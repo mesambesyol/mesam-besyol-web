@@ -18,7 +18,6 @@ const NightPatientCounter: React.FC = () => {
   useEffect(() => {
     if (isVisible) {
       setCount(0); // Reset count when it becomes visible again
-      let start = 0;
       const duration = 1500; // duration in ms
       const startTime = Date.now();
       let animationFrameId: number;

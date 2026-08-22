@@ -1,6 +1,5 @@
 
 import React from 'react';
-import * as ReactRouterDom from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { InstagramIcon } from '../constants/icons';
 import SectionTitle from './SectionTitle';

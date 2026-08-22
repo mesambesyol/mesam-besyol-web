@@ -82,7 +82,7 @@ Respond in ${language === 'tr' ? 'Turkish' : language === 'de' ? 'German' : 'Eng
           contents: { parts: [textPart, imagePart] },
       });
       
-      setAiResponse(response.text);
+      setAiResponse(response.text || '');
 
     } catch (err) {
       console.error(err);

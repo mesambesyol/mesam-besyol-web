@@ -3,7 +3,7 @@ import * as ReactRouterDom from 'react-router-dom';
 import { MenuIcon, XMarkIcon, ChevronDownIcon, TurkeyFlagIcon, UKFlagIcon, GermanyFlagIcon, WhatsAppIcon } from '../constants/icons';
 import { NAV_LINKS } from '../constants/navigation';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Language, NavLinkItem } from '../types';
+import { Language } from '../types';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

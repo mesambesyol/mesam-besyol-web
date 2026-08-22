@@ -47,7 +47,7 @@ export const trTranslations = {
     contact: "İletişim",
     phone: "Telefon",
     email: "E-posta",
-    copyright: "Mesam Beşyol Diş Kliniği. Tüm hakları saklıdır.",
+    copyright: "Mesam Beşyol Diş Polikliniği. Tüm hakları saklıdır.",
     availability: "7/24 Acil Diş Hekimliği Hizmeti",
     socialMedia: {
       title: "Sosyal Medya Hesaplarımız",

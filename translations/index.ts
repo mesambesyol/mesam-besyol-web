@@ -1,7 +1,6 @@
 import { trTranslations, TrTranslations } from './tr';
 import { enTranslations } from './en';
 import { deTranslations } from './de'; // Almanca çevirileri import et
-import { Language } from '../types';
 
 export const translations = {
   tr: trTranslations,

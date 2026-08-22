@@ -4,7 +4,6 @@ import * as ReactRouterDom from 'react-router-dom';
 import HeroSlider from '../components/HeroSlider';
 import PageContainer from '../components/PageContainer';
 import SectionTitle from '../components/SectionTitle';
-import ServiceCard from '../components/ServiceCard';
 import BlogPostCard from '../components/BlogPostCard';
 import DoctorCarousel from '../components/DoctorCarousel';
 import ServiceCarousel from '../components/ServiceCarousel';
