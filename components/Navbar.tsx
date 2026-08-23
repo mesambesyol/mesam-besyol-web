@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import * as ReactRouterDom from 'react-router-dom';
+import { motion, AnimatePresence } from 'motion/react';
 import { MenuIcon, XMarkIcon, ChevronDownIcon, TurkeyFlagIcon, UKFlagIcon, GermanyFlagIcon, WhatsAppIcon } from '../constants/icons';
 import { NAV_LINKS } from '../constants/navigation';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -240,7 +241,7 @@ const Navbar: React.FC = () => {
             </a>
             <ReactRouterDom.Link
               to="/randevu" 
-              className="inline-flex items-center justify-center px-3.5 xl:px-4 py-2 border border-teal-400/40 rounded-full text-[12px] font-semibold text-white bg-gradient-to-r from-brand-teal to-teal-700 hover:from-teal-600 hover:to-teal-800 shadow-md shadow-teal-500/20 hover:shadow-lg hover:shadow-teal-500/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200"
+              className="inline-flex items-center justify-center px-3.5 xl:px-4 py-2 border border-teal-400/40 rounded-full text-[12px] font-semibold text-white bg-gradient-to-r from-brand-teal to-teal-700 hover:from-teal-600 hover:to-teal-800 shadow-md shadow-teal-500/20 hover:shadow-lg hover:shadow-teal-500/30 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 btn-shimmer"
             >
               {t('buttons.appointment')}
             </ReactRouterDom.Link>
@@ -261,79 +262,136 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white shadow-lg absolute top-full left-0 right-0 z-40" id="mobile-menu">
-          <nav className="px-2 pt-2 pb-3 space-y-1 sm:px-3" role="navigation" aria-label="Mobil ana navigasyon">
-             {NAV_LINKS.map(item => {
-               const itemName = getLocalized(item.name);
-               if (item.children) {
-                 const isDropdownOpen = mobileActiveDropdown === itemName;
-                 return (
-                   <div key={itemName}>
-                     <button
-                       onClick={() => setMobileActiveDropdown(isDropdownOpen ? null : itemName)}
-                       className="w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-brand-blue-light hover:text-brand-blue transition-colors"
-                     >
-                       <span>{itemName}</span>
-                       <ChevronDownIcon className={`w-5 h-5 transform transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
-                     </button>
-                     <div className={`pl-4 overflow-hidden transition-all duration-500 ease-in-out ${isDropdownOpen ? 'max-h-[1000px]' : 'max-h-0'}`}>
-                       <div className="pt-1 pb-2 space-y-1">
-                          {item.children.map(child => (
-                            <ReactRouterDom.Link
-                                key={child.path}
-                                to={child.path!}
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className={`block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-brand-blue transition-colors ${
-                                    location.pathname === child.path ? 'bg-brand-blue-light text-brand-blue' : ''
-                                }`}
-                            >
-                                {getLocalized(child.name)}
-                            </ReactRouterDom.Link>
-                          ))}
-                       </div>
-                     </div>
-                   </div>
-                 );
-               } else {
-                 return (
-                   <ReactRouterDom.Link
-                     key={item.path}
-                     to={item.path!}
-                     onClick={() => {
-                       setIsMobileMenuOpen(false);
-                       if (item.path === '/') scrollToTopIfHome();
-                     }}
-                     className={`text-gray-700 hover:bg-brand-blue-light hover:text-brand-blue block px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                       location.pathname === item.path ? 'bg-brand-blue-light text-brand-blue' : ''
-                     }`}
-                   >
-                     {itemName}
-                   </ReactRouterDom.Link>
-                 );
-               }
-             })}
-             <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <>
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-black/30 backdrop-blur-xs z-30 lg:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="mt-2 flex items-center justify-center gap-2 w-full text-center px-4 py-2 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-green-500/80 hover:bg-green-600 backdrop-blur-md transition-colors cta-pulse"
+            />
+            <motion.div 
+              initial={{ opacity: 0, y: -20, scaleY: 0.95 }}
+              animate={{ opacity: 1, y: 0, scaleY: 1 }}
+              exit={{ opacity: 0, y: -10, scaleY: 0.95 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:hidden bg-white/95 backdrop-blur-md shadow-2xl border-b border-gray-100 absolute top-full left-0 right-0 z-40 origin-top" 
+              id="mobile-menu"
             >
-               <WhatsAppIcon className="w-5 h-5" />
-              {t('header.whatsappLine')}
-            </a>
-            <ReactRouterDom.Link
-              to="/randevu"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="mt-1 block w-full text-center px-4 py-2 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-brand-teal/80 hover:bg-brand-teal backdrop-blur-md transition-colors"
-            >
-              {t('buttons.appointment')}
-            </ReactRouterDom.Link>
-            <LanguageSelector isMobile={true}/>
-          </nav>
-        </div>
-      )}
+              <nav className="px-4 pt-3 pb-5 space-y-1.5 sm:px-6 overflow-hidden" role="navigation" aria-label="Mobil ana navigasyon">
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: {
+                      opacity: 1,
+                      transition: { staggerChildren: 0.05, delayChildren: 0.1 }
+                    }
+                  }}
+                  className="flex flex-col gap-1.5"
+                >
+                  {NAV_LINKS.map(item => {
+                    const itemName = getLocalized(item.name);
+                    const childVariants: any = {
+                      hidden: { opacity: 0, x: -10 },
+                      visible: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
+                    };
+
+                    if (item.children) {
+                      const isDropdownOpen = mobileActiveDropdown === itemName;
+                      return (
+                        <motion.div key={itemName} variants={childVariants}>
+                          <button
+                            onClick={() => setMobileActiveDropdown(isDropdownOpen ? null : itemName)}
+                            className="w-full flex items-center justify-between px-3 py-2.5 rounded-md text-sm font-semibold text-gray-700 hover:bg-brand-blue-light hover:text-brand-blue transition-colors"
+                          >
+                            <span>{itemName}</span>
+                            <ChevronDownIcon className={`w-5 h-5 transform transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                          </button>
+                          <AnimatePresence>
+                            {isDropdownOpen && (
+                              <motion.div 
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.3, ease: "easeInOut" }}
+                                className="pl-4 overflow-hidden"
+                              >
+                                <div className="pt-1 pb-2 space-y-1">
+                                  {item.children.map(child => (
+                                    <ReactRouterDom.Link
+                                        key={child.path}
+                                        to={child.path!}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className={`block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-brand-blue transition-colors ${
+                                            location.pathname === child.path ? 'bg-brand-blue-light text-brand-blue' : ''
+                                        }`}
+                                    >
+                                        {getLocalized(child.name)}
+                                    </ReactRouterDom.Link>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </motion.div>
+                      );
+                    } else {
+                      return (
+                        <motion.div key={item.path} variants={childVariants}>
+                          <ReactRouterDom.Link
+                            to={item.path!}
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              if (item.path === '/') scrollToTopIfHome();
+                            }}
+                            className={`text-gray-700 hover:bg-brand-blue-light hover:text-brand-blue block px-3 py-2.5 rounded-md text-sm font-semibold transition-colors ${
+                              location.pathname === item.path ? 'bg-brand-blue-light text-brand-blue' : ''
+                            }`}
+                          >
+                            {itemName}
+                          </ReactRouterDom.Link>
+                        </motion.div>
+                      );
+                    }
+                  })}
+                  <motion.div 
+                    variants={{
+                      hidden: { opacity: 0, y: 10 },
+                      visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
+                    } as any}
+                    className="flex flex-col gap-2 mt-2"
+                  >
+                    <a
+                      href={whatsappLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 border border-emerald-400/40 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 shadow-md shadow-emerald-500/20 active:scale-98 transition-all duration-200 cta-pulse"
+                    >
+                      <WhatsAppIcon className="w-5 h-5" />
+                      <span>{t('header.whatsappLine')}</span>
+                    </a>
+                    <ReactRouterDom.Link
+                      to="/randevu"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="inline-flex items-center justify-center w-full px-4 py-2.5 border border-teal-400/40 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-brand-teal to-teal-700 hover:from-teal-600 hover:to-teal-800 shadow-md shadow-teal-500/20 active:scale-98 transition-all duration-200 btn-shimmer"
+                    >
+                      {t('buttons.appointment')}
+                    </ReactRouterDom.Link>
+                    <LanguageSelector isMobile={true}/>
+                  </motion.div>
+                </motion.div>
+              </nav>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

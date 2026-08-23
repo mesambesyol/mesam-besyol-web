@@ -42,28 +42,33 @@ const HomePage: React.FC = () => {
       <MetaTags page="home" />
       <HeroSlider slides={HERO_SLIDES_DATA} />
 
-      <AnimatedItem as="section" className="py-16 bg-white overflow-hidden">
-        <PageContainer>
+      <AnimatedItem as="section" className="py-16 bg-white overflow-hidden relative">
+        {/* Floating Organic Blobs Background */}
+        <div className="pointer-events-none absolute -top-24 -left-24 w-96 h-96 bg-brand-cyan-light/30 rounded-full blur-3xl animate-blob-1" />
+        <div className="pointer-events-none absolute -bottom-24 -right-24 w-96 h-96 bg-brand-blue-pastel/25 rounded-full blur-3xl animate-blob-2" />
+
+        <PageContainer className="relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-brand-teal/30 to-brand-blue/30 rounded-2xl blur-lg opacity-50 group-hover:opacity-80 transition duration-500" />
               <img 
                 src="https://i.imgur.com/YlYkPs3.jpeg" 
                 alt={t('homePage.teamImageAlt')}
-                className="rounded-lg shadow-xl"
+                className="relative rounded-2xl shadow-xl w-full object-cover"
                 loading="lazy"
               />
             </div>
             <div>
               <SectionTitle title={t('homePage.aboutOurClinicTitle')} className="text-left mb-6" />
-              <p className="text-gray-600 mb-4">
+              <p className="text-slate-600 mb-4 leading-relaxed">
                 {t('homePage.aboutSummary1')}
               </p>
-              <p className="text-gray-600 mb-6">
+              <p className="text-slate-600 mb-6 leading-relaxed">
                 {t('homePage.aboutSummary2')}
               </p>
               <ReactRouterDom.Link
                 to="/hakkimizda"
-                className="inline-flex items-center justify-center bg-gradient-to-r from-brand-blue to-sky-700 hover:from-brand-blue hover:to-sky-800 text-white px-7 py-3 rounded-xl shadow-md shadow-brand-blue/20 hover:shadow-lg hover:shadow-brand-blue/30 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 font-semibold text-sm"
+                className="inline-flex items-center justify-center bg-gradient-to-r from-brand-blue to-sky-700 hover:from-brand-blue hover:to-sky-800 text-white px-7 py-3.5 rounded-xl shadow-md shadow-brand-blue/20 hover:shadow-lg hover:shadow-brand-blue/30 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 font-semibold text-sm btn-shimmer"
               >
                 {t('buttons.moreInfo')}
               </ReactRouterDom.Link>
@@ -106,8 +111,16 @@ const HomePage: React.FC = () => {
         </PageContainer>
       </AnimatedItem>
 
-      <AnimatedItem as="section" id="before-after" className="py-16 bg-white overflow-hidden">
-        <PageContainer>
+      <AnimatedItem as="section" id="before-after" className="py-16 bg-white overflow-hidden relative">
+        {/* Subtle Decorative Sparkles */}
+        <div className="pointer-events-none absolute top-10 left-10 text-brand-teal/40 animate-sparkle">
+          <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5z"/></svg>
+        </div>
+        <div className="pointer-events-none absolute bottom-12 right-12 text-brand-cyan/40 animate-sparkle-delayed">
+          <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5z"/></svg>
+        </div>
+
+        <PageContainer className="relative z-10">
           <SectionTitle 
             title={t('homePage.beforeAfterTitle')} 
             subtitle={t('homePage.beforeAfterSubtitle')} 

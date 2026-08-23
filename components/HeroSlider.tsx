@@ -105,9 +105,9 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ slides, autoPlayInterval = 5000
     const baseClasses = "flex items-center justify-center px-6 py-3.5 sm:px-8 text-base font-semibold rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 active:scale-[0.98]";
     switch (variant) {
       case 'primary':
-        return `${baseClasses} border border-white/40 text-white bg-white/20 hover:bg-white/30 backdrop-blur-md shadow-lg shadow-black/20 hover:shadow-xl`;
+        return `${baseClasses} border border-white/40 text-white bg-white/20 hover:bg-white/30 backdrop-blur-md shadow-lg shadow-black/20 hover:shadow-xl btn-shimmer`;
       case 'secondary':
-        return `${baseClasses} border border-teal-400/40 text-white bg-gradient-to-r from-brand-teal to-teal-600 hover:from-teal-600 hover:to-teal-700 shadow-lg shadow-teal-900/30 hover:shadow-xl hover:shadow-teal-500/20`;
+        return `${baseClasses} border border-teal-400/40 text-white bg-gradient-to-r from-brand-teal to-teal-600 hover:from-teal-600 hover:to-teal-700 shadow-lg shadow-teal-900/30 hover:shadow-xl hover:shadow-teal-500/20 btn-shimmer`;
       case 'outline':
         return `${baseClasses} border border-white/60 text-white bg-black/20 hover:bg-white/15 backdrop-blur-sm shadow-md hover:shadow-lg`;
       default:

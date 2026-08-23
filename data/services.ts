@@ -1242,4 +1242,99 @@ export const SERVICES_DATA: Service[] = [
     imageUrl: 'https://i.imgur.com/a6jeieW.jpeg',
     relatedDoctorIds: ['dt-burak-senol'],
   },
+  {
+    id: 'dijital-anestezi',
+    name: { tr: 'Dijital Anestezi (Ağrısız İğne)', en: 'Digital Anesthesia (Pain-Free)', de: 'Digitale Anästhesie' },
+    category: { tr: 'Modern Teknolojiler', en: 'Modern Technologies', de: 'Moderne Technologien' },
+    description: { 
+      tr: 'Bilgisayar kontrollü özel cihazlar ile iğne korkusunu ortadan kaldıran, tamamen ağrısız ve konforlu lokal anestezi deneyimi.',
+      en: 'A completely painless and comfortable local anesthesia experience that eliminates needle phobia using computer-controlled special devices.',
+      de: 'Ein völlig schmerzfreies und komfortables Lokalanästhesie-Erlebnis, das die Spritzenangst durch computergesteuerte Spezialgeräte beseitigt.'
+    },
+    longDescription: {
+      tr: `
+        <h2 class="text-2xl font-bold text-brand-blue mb-4">Dijital Anestezi (Ağrısız Anestezi) Nedir?</h2>
+        <p class="mb-4">Diş hekimi korkusunun ve koltuğa oturma çekincesinin en büyük nedenlerinden biri iğne korkusudur. Dijital anestezi (bilgisayar destekli lokal anestezi cihazı), anestezi solüsyonunun dokuya en ideal basınç ve hızda verilmesini sağlayan son teknoloji bir sistemdir. Geleneksel şırıngalardan farklı olarak, enjeksiyon hızı mikro işlemci tarafından kontrol edilir ve ağrı reseptörlerinin uyarılması engellenir.</p>
+        
+        <h3 class="text-xl font-semibold text-brand-blue mt-8 mb-4">Nasıl Uygulanır?</h3>
+        <p class="mb-4">Cihaz, kaleme benzeyen ergonomik bir başlığa sahiptir. Hekim solüsyonu uygulamaya başladığında bilgisayar kontrollü akış mekanizması devreye girer. İlk saniyelerde çok yavaş damlatma yapılarak dokunun uyuşması sağlanır, ardından kontrollü bir şekilde anestezi tamamlanır. Bu sayede hasta iğne girişini ve ilacın verilme basıncından kaynaklanan gerilmeyi hissetmez.</p>
+
+        <h3 class="text-xl font-semibold text-brand-blue mt-8 mb-4">Başlıca Avantajları Nelerdir?</h3>
+        <ul class="list-disc list-inside space-y-2 mb-4">
+          <li><strong>Ağrısız ve Konforlu:</strong> Basınç hissi ve ani uyuşma sancısı yaratmaz.</li>
+          <li><strong>İğne Fobisini Yener:</strong> Kalem benzeri şık tasarımı sayesinde klasik iğne psikolojisini ortadan kaldırır.</li>
+          <li><strong>Hedefe Yönelik Anestezi:</strong> Sadece işlem yapılacak diş bölgesi uyuşturulur; dudaklarda ve dümülde gereksiz geniş uyuşmalar yaşanmaz.</li>
+          <li><strong>Çocuklar ve Hassas Hastalar İçin İdealdir:</strong> Diş hekimi korkusu olan her yaş grubundan hasta için mükemmel konfor sunar.</li>
+        </ul>
+      `,
+      en: `
+        <h2 class="text-2xl font-bold text-brand-blue mb-4">What is Digital Anesthesia?</h2>
+        <p class="mb-4">One of the main reasons for dental anxiety is needle phobia. Digital anesthesia is a state-of-the-art system that delivers anesthetic solution at the ideal pressure and speed. Unlike traditional syringes, the injection speed is microchip-controlled, preventing the stimulation of pain receptors.</p>
+        
+        <h3 class="text-xl font-semibold text-brand-blue mt-8 mb-4">How Is It Applied?</h3>
+        <p class="mb-4">The device features a pen-like ergonomic handpiece. The computer-controlled flow mechanism ensures slow drip during the initial seconds for comfortable numbing.</p>
+
+        <h3 class="text-xl font-semibold text-brand-blue mt-8 mb-4">Key Advantages</h3>
+        <ul class="list-disc list-inside space-y-2 mb-4">
+          <li><strong>Painless and Comfortable:</strong> Eliminates pressure pain.</li>
+          <li><strong>Overcomes Needle Phobia:</strong> Pen-like design reduces anxiety.</li>
+          <li><strong>Targeted Numbing:</strong> Only numbs the specific tooth area.</li>
+        </ul>
+      `,
+      de: `
+        <h2 class="text-2xl font-bold text-brand-blue mb-4">Was ist digitale Anästhesie?</h2>
+        <p class="mb-4">Digitale Anästhesie ist ein hochmodernes System, das Anästhesielösung mit idealem Druck und optimaler Geschwindigkeit abgibt.</p>
+      `
+    },
+    icon: React.createElement(AdjustmentsHorizontalIcon),
+    imageUrl: 'https://i.imgur.com/trE8QJV.jpg',
+    relatedDoctorIds: ['dt-muhammet-karadag', 'dt-burak-senol'],
+  },
+  {
+    id: 'sinus-lifting',
+    name: { tr: 'Sinüs Lifting (Sinüs Yükseltme)', en: 'Sinus Lifting', de: 'Sinusbodenelevation' },
+    category: { tr: 'Cerrahi ve Restoratif Tedaviler', en: 'Surgical and Restorative Treatments', de: 'Chirurgische und restaurative Behandlungen' },
+    description: { 
+      tr: 'Üst çene arka bölgesinde yetersiz kemik hacmini artırmak ve güvenli dental implant uygulaması sağlamak için uygulanan cerrahi yöntem.',
+      en: 'Surgical method applied to increase insufficient bone volume in the upper jaw posterior region and ensure safe dental implant placement.',
+      de: 'Chirurgische Methode zur Erhöhung des unzureichenden Knochenvolumens im hinteren Oberkiefer.'
+    },
+    longDescription: {
+      tr: `
+        <h2 class="text-2xl font-bold text-brand-blue mb-4">Sinüs Lifting (Sinüs Yükseltme) Nedir?</h2>
+        <p class="mb-4">Üst çene azı dişlerinin bulunduğu bölgede "maksiller sinüs" adı verilen hava boşlukları bulunur. Uzun süre dişsiz kalan bölgelerde bu sinüsler aşağı doğru sarkabilir ve çene kemiğinde erime meydana gelebilir. Dental implant yapılabilmesi için yeterli kemik yüksekliği bulunmadığı durumlarda, sinüs tabanının yukarı kaldırılarak boşluğa kemik grefti (tozu) yerleştirilmesi işlemine <strong>Sinüs Lifting</strong> denir.</p>
+        
+        <h3 class="text-xl font-semibold text-brand-blue mt-8 mb-4">Hangi Durumlarda Uygulanır?</h3>
+        <ul class="list-disc list-inside space-y-2 mb-4">
+          <li>Üst çene arka dişlerini uzun süre önce kaybetmiş hastalarda.</li>
+          <li>Sinüs boşluğunun aşağı sarkması nedeniyle mevcut kemik yüksekliğinin implant için yetersiz olduğu durumlarda.</li>
+          <li>İmplantların sağlam bir kemik altyapısına güvenle tutunmasını sağlamak amacıyla.</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-brand-blue mt-8 mb-4">Operasyon Nasıl Gerçekleştirilir?</h3>
+        <p class="mb-4">Sinüs lifting işlemi iki farklı teknikle yapılabilir:</p>
+        <ol class="list-decimal list-inside space-y-3 mb-4">
+          <li><strong>Kapalı Sinüs Lifting (Internal):</strong> Kemiğin yeterli olduğu ancak az miktarda yükseltmeye ihtiyaç duyulduğu durumlarda implant yuvasından girilerek aynı seans uygulanır.</li>
+          <li><strong>Açık Sinüs Lifting (External):</strong> Çene kemiğinin çok ince olduğu vakalarda, yan taraftan küçük bir pencere açılır, sinüs zarı nazikçe yukarı kaldırılır ve oluşan boşluğa biyouyumlu kemik greftleri eklenir.</li>
+        </ol>
+      `,
+      en: `
+        <h2 class="text-2xl font-bold text-brand-blue mb-4">What is Sinus Lifting?</h2>
+        <p class="mb-4">Sinus lifting is a surgical procedure that adds bone to your upper jaw in the area of your molars and premolars to make space for dental implants when there is not enough bone height.</p>
+        
+        <h3 class="text-xl font-semibold text-brand-blue mt-8 mb-4">When Is It Needed?</h3>
+        <ul class="list-disc list-inside space-y-2 mb-4">
+          <li>When upper back teeth have been missing for a long time.</li>
+          <li>When sinus cavities have enlarged and reduced bone height.</li>
+        </ul>
+      `,
+      de: `
+        <h2 class="text-2xl font-bold text-brand-blue mb-4">Was ist Sinuslifting?</h2>
+        <p class="mb-4">Ein Sinuslifting ist ein chirurgischer Eingriff zum Aufbau von Knochen im Oberkiefer.</p>
+      `
+    },
+    icon: React.createElement(ShieldCheckIcon),
+    imageUrl: 'https://i.imgur.com/xU8yUuN.jpeg',
+    relatedDoctorIds: ['dt-muhammet-karadag'],
+  },
 ];

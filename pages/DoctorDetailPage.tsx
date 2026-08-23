@@ -4,7 +4,7 @@ import React from 'react';
 import * as ReactRouterDom from 'react-router-dom';
 import PageContainer from '../components/PageContainer';
 import { DOCTORS_DATA } from '../data/doctors';
-import { UserCircleIcon, AcademicCapIcon, ClipboardDocumentListIcon, BriefcaseIcon, SparklesIcon } from '../constants/icons';
+import { UserCircleIcon, AcademicCapIcon, ClipboardDocumentListIcon, BriefcaseIcon, SparklesIcon, WhatsAppIcon } from '../constants/icons';
 import { useLanguage } from '../contexts/LanguageContext';
 import { DoctorDetailSection } from '../types';
 import MetaTags from '../components/MetaTags';
@@ -76,12 +76,15 @@ const DoctorDetailPage: React.FC = () => {
                   <div className="p-6 text-center">
                     <h1 className="text-2xl font-bold text-slate-800 mb-1">{doctor.name}</h1>
                     <p className="text-brand-teal font-medium mb-6">{title}</p>
-                    <ReactRouterDom.Link 
-                      to="/randevu"
-                      className="w-full inline-flex items-center justify-center bg-gradient-to-r from-brand-teal to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-6 py-3.5 rounded-xl shadow-md shadow-teal-600/20 hover:shadow-lg hover:shadow-teal-600/30 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 font-semibold text-sm"
+                    <a 
+                      href={`https://wa.me/905432420016?text=Merhaba,%20${encodeURIComponent(doctor.name)}%20için%20randevu%20almak%20istiyorum.`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white px-6 py-3.5 rounded-xl shadow-md shadow-emerald-600/20 hover:shadow-lg hover:shadow-emerald-600/30 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 font-semibold text-sm cta-pulse"
                     >
-                      {t('buttons.appointment')}
-                    </ReactRouterDom.Link>
+                      <WhatsAppIcon className="w-5 h-5" />
+                      {t('buttons.whatsappAppointment')}
+                    </a>
                   </div>
                 </div>
               </aside>

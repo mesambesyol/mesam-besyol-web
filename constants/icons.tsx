@@ -202,24 +202,10 @@ export const RobotHeadsetIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg aria-label="Instagram" viewBox="0 0 24 24" {...props}>
-      <defs>
-        <radialGradient id="instagram-gradient" cx="30%" cy="107%" r="150%">
-          <stop offset="0%" stopColor="#fdf497" />
-          <stop offset="5%" stopColor="#fdf497" />
-          <stop offset="45%" stopColor="#fd5949" />
-          <stop offset="60%" stopColor="#d6249f" />
-          <stop offset="90%" stopColor="#285AEB" />
-        </radialGradient>
-      </defs>
-      <path
-        fill="url(#instagram-gradient)"
-        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163z"
-      />
-      <path
-        fill="#fff"
-        d="M12 7.202c-2.64 0-4.798 2.158-4.798 4.798s2.158 4.798 4.798 4.798 4.798-2.158 4.798-4.798-2.158-4.798-4.798-4.798zm0 7.796c-1.656 0-3-1.344-3-3s1.344-3 3-3 3 1.344 3 3-1.344 3-3 3zm4.805-7.737a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25z"
-      />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
     </svg>
 );
 

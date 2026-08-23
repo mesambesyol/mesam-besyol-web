@@ -52,15 +52,21 @@ const App: React.FC = () => {
           </ReactRouterDom.Routes>
         </main>
         <Footer />
-        <a
-          href={whatsappLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="whatsapp-fab cta-pulse"
-          aria-label={t('header.whatsappLine')}
-        >
-          <WhatsAppIcon className="w-8 h-8"/>
-        </a>
+        <div className="fixed bottom-6 right-6 z-50">
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-14 h-14 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-105 relative group cta-pulse"
+            aria-label={t('header.whatsappLine')}
+            title="WhatsApp Randevu Hattı"
+          >
+            <WhatsAppIcon className="w-8 h-8"/>
+            <span className="absolute -top-1.5 -right-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[9px] font-extrabold tracking-tighter px-1.5 py-0.5 rounded-full shadow-md border border-white transition-transform group-hover:scale-110 whitespace-nowrap">
+              RANDEVU
+            </span>
+          </a>
+        </div>
       </div>
     </ReactRouterDom.HashRouter>
   );

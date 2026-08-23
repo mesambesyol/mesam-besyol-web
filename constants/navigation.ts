@@ -29,5 +29,6 @@ export const NAV_LINKS: NavLinkItem[] = [
   { name: { tr: 'Hekimlerimiz', en: 'Our Doctors', de: 'Unsere Ärzte' }, path: '/hekimlerimiz' },
   { name: { tr: 'Blog', en: 'Blog', de: 'Blog' }, path: '/blog' },
   { name: { tr: 'Diş Sağlığı Testi', en: 'Dental Health Quiz', de: 'Zahngesundheits-Quiz' }, path: '/test' },
+  { name: { tr: 'Bizimle Çalışın', en: 'Work With Us', de: 'Karriere' }, path: '/randevu' },
   { name: { tr: 'İletişim', en: 'Contact', de: 'Kontakt' }, path: '/iletisim' },
 ];

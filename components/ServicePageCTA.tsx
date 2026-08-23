@@ -23,7 +23,7 @@ const ServicePageCTA: React.FC = () => {
                         to="/randevu"
                         className="inline-flex items-center justify-center px-7 py-3.5 border border-white/80 text-base font-semibold rounded-xl text-brand-blue bg-white hover:bg-sky-50 shadow-lg shadow-black/10 transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
                     >
-                        {t('buttons.appointment')}
+                        {t('buttons.career')}
                     </ReactRouterDom.Link>
                     <a
                         href={whatsappLink}
