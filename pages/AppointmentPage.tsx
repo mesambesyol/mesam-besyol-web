@@ -107,7 +107,6 @@ const AppointmentPage: React.FC = () => {
                       <option value="dentist">{t('careerForm.positions.dentist')}</option>
                       <option value="assistant">{t('careerForm.positions.assistant')}</option>
                       <option value="reception">{t('careerForm.positions.reception')}</option>
-                      <option value="management">{t('careerForm.positions.management')}</option>
                       <option value="partner">{t('careerForm.positions.partner')}</option>
                     </select>
                   </div>
