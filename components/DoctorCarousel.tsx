@@ -1,5 +1,4 @@
-
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Doctor } from '../types';
 import DoctorCard from './DoctorCard';
 
@@ -8,88 +7,190 @@ interface DoctorCarouselProps {
 }
 
 const DoctorCarousel: React.FC<DoctorCarouselProps> = ({ doctors }) => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const isInteracting = useRef(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const posRef = useRef<number>(0);
+  const isInteractingRef = useRef<boolean>(false);
+  const isMouseDownRef = useRef<boolean>(false);
+  const startXRef = useRef<number>(0);
+  const scrollLeftStartRef = useRef<number>(0);
+  const hasDraggedRef = useRef<boolean>(false);
   const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   if (!doctors || doctors.length === 0) {
     return null;
   }
 
-  // Triple items for seamless infinite auto-scroll and manual scrolling
-  const scrollItems = [...doctors, ...doctors, ...doctors];
+  // Duplicate 3 times for seamless bidirectional infinite scrolling
+  const triplicatedDoctors = [...doctors, ...doctors, ...doctors];
 
   useEffect(() => {
-    const container = scrollRef.current;
+    const container = containerRef.current;
     if (!container) return;
 
-    let animationId: number;
-    const speed = 1.0; // Smooth auto-scroll speed
-    let exactScroll = container.scrollLeft;
+    // Initial position at middle set
+    const singleSetWidth = container.scrollWidth / 3;
+    if (singleSetWidth > 0 && container.scrollLeft === 0) {
+      container.scrollLeft = singleSetWidth;
+      posRef.current = singleSetWidth;
+    }
 
-    const step = () => {
-      if (!isInteracting.current && container) {
-        exactScroll += speed;
-        container.scrollLeft = exactScroll;
+    let lastTime = performance.now();
+    let animationFrameId: number;
+    const speed = 36; // Pixels per second
 
-        const singleSetWidth = container.scrollWidth / 3;
-        if (container.scrollLeft >= singleSetWidth * 2) {
-          exactScroll -= singleSetWidth;
-          container.scrollLeft = exactScroll;
-        } else if (container.scrollLeft <= 0) {
-          exactScroll += singleSetWidth;
-          container.scrollLeft = exactScroll;
+    const animate = (time: number) => {
+      const dt = Math.min((time - lastTime) / 1000, 0.1);
+      lastTime = time;
+
+      if (container && !isInteractingRef.current) {
+        const setWidth = container.scrollWidth / 3;
+        if (setWidth > 0) {
+          posRef.current += speed * dt;
+
+          // Infinite wrap bounds
+          if (posRef.current >= setWidth * 2) {
+            posRef.current -= setWidth;
+          } else if (posRef.current < setWidth * 0.3) {
+            posRef.current += setWidth;
+          }
+
+          container.scrollLeft = posRef.current;
         }
-      } else if (container) {
-        exactScroll = container.scrollLeft;
       }
-      animationId = requestAnimationFrame(step);
+
+      animationFrameId = requestAnimationFrame(animate);
     };
 
-    animationId = requestAnimationFrame(step);
+    animationFrameId = requestAnimationFrame(animate);
+
     return () => {
-      cancelAnimationFrame(animationId);
-      if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+      cancelAnimationFrame(animationFrameId);
+      if (resumeTimeoutRef.current) {
+        clearTimeout(resumeTimeoutRef.current);
+      }
     };
-  }, []);
+  }, [doctors]);
 
-  const handleUserAction = () => {
-    isInteracting.current = true;
+  const handleScroll = () => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    posRef.current = container.scrollLeft;
+
+    const singleSetWidth = container.scrollWidth / 3;
+    if (singleSetWidth > 0) {
+      if (container.scrollLeft >= singleSetWidth * 2) {
+        container.scrollLeft -= singleSetWidth;
+        posRef.current -= singleSetWidth;
+      } else if (container.scrollLeft <= singleSetWidth * 0.2) {
+        container.scrollLeft += singleSetWidth;
+        posRef.current += singleSetWidth;
+      }
+    }
+  };
+
+  // Touch Handlers for Mobile
+  const handleTouchStart = () => {
+    isInteractingRef.current = true;
+    if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+  };
+
+  const handleTouchEnd = () => {
     if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
     resumeTimeoutRef.current = setTimeout(() => {
-      isInteracting.current = false;
-    }, 2500);
+      isInteractingRef.current = false;
+    }, 1000);
+  };
+
+  // Mouse Drag Handlers for Desktop
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    const container = containerRef.current;
+    if (!container) return;
+    isMouseDownRef.current = true;
+    isInteractingRef.current = true;
+    hasDraggedRef.current = false;
+    startXRef.current = e.pageX - container.offsetLeft;
+    scrollLeftStartRef.current = container.scrollLeft;
+    if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const container = containerRef.current;
+    if (!isMouseDownRef.current || !container) return;
+    e.preventDefault();
+    const x = e.pageX - container.offsetLeft;
+    const walk = x - startXRef.current;
+    if (Math.abs(walk) > 5) {
+      hasDraggedRef.current = true;
+    }
+    container.scrollLeft = scrollLeftStartRef.current - walk;
+  };
+
+  const handleMouseUp = () => {
+    isMouseDownRef.current = false;
+    setTimeout(() => {
+      hasDraggedRef.current = false;
+    }, 50);
+    if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+    resumeTimeoutRef.current = setTimeout(() => {
+      isInteractingRef.current = false;
+    }, 1000);
+  };
+
+  const handleMouseEnter = () => {
+    isInteractingRef.current = true;
+  };
+
+  const handleMouseLeave = () => {
+    if (isMouseDownRef.current) {
+      handleMouseUp();
+    } else {
+      isInteractingRef.current = false;
+    }
+  };
+
+  const handleClickCapture = (e: React.MouseEvent) => {
+    if (hasDraggedRef.current) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
   };
 
   return (
-    <div className="relative w-full group">
-      {/* Auto-scrolling & Touch swipeable container */}
-      <div 
-        ref={scrollRef}
-        onTouchStart={handleUserAction}
-        onTouchMove={handleUserAction}
-        onWheel={handleUserAction}
-        onMouseDown={handleUserAction}
-        onMouseEnter={handleUserAction}
-        onMouseLeave={() => {
-          if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
-          resumeTimeoutRef.current = setTimeout(() => {
-            isInteracting.current = false;
-          }, 1000);
+    <div 
+      className="relative w-full py-4 overflow-hidden group"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Subtle edge fade overlays */}
+      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-r from-stone-100 to-transparent z-10 hidden sm:block" />
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-stone-100 to-transparent z-10 hidden sm:block" />
+
+      {/* Interactive & Auto-Scrolling Track */}
+      <div
+        ref={containerRef}
+        onScroll={handleScroll}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onClickCapture={handleClickCapture}
+        className="flex gap-5 overflow-x-auto overflow-y-hidden pb-4 pt-1 px-4 sm:px-6 cursor-grab active:cursor-grabbing select-none no-scrollbar"
+        style={{ 
+          WebkitOverflowScrolling: 'touch',
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
         }}
-        className="overflow-x-auto pb-6 pt-2 scrollbar-none [-ms-overflow-style:none] [scrollbar-width:none]"
-        style={{ WebkitOverflowScrolling: 'touch' }}
       >
-        <div className="flex w-max gap-4 px-2">
-          {scrollItems.map((doctor, index) => (
-            <div
-              key={`${doctor.id}-${index}`}
-              className="flex-shrink-0 w-72 sm:w-80"
-            >
-              <DoctorCard doctor={doctor} />
-            </div>
-          ))}
-        </div>
+        {triplicatedDoctors.map((doctor, index) => (
+          <div
+            key={`doctor-${doctor.id}-${index}`}
+            className="w-[260px] sm:w-[280px] md:w-[300px] flex-shrink-0"
+          >
+            <DoctorCard doctor={doctor} />
+          </div>
+        ))}
       </div>
     </div>
   );
