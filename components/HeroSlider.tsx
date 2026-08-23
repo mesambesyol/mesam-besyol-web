@@ -141,6 +141,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ slides, autoPlayInterval = 5000
               alt={t(slide.titleKey as any)}
               className="w-full h-full object-cover transition-opacity duration-700 ease-out"
               loading={index === 0 ? "eager" : "lazy"}
+              referrerPolicy="no-referrer"
               // @ts-ignore
               fetchPriority={index === 0 ? "high" : "auto"}
             />

@@ -18,6 +18,7 @@ import BeforeAfterGallery from '../components/BeforeAfterGallery';
 import FaqSection from '../components/FaqSection';
 import MetaTags from '../components/MetaTags';
 import InstagramFeed from '../components/InstagramFeed';
+import ProgressiveImage from '../components/ProgressiveImage';
 
 const HomePage: React.FC = () => {
   const { t } = useLanguage();
@@ -51,10 +52,11 @@ const HomePage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-brand-teal/30 to-brand-blue/30 rounded-2xl blur-lg opacity-50 group-hover:opacity-80 transition duration-500" />
-              <img 
+              <ProgressiveImage 
                 src="https://i.imgur.com/YlYkPs3.jpeg" 
                 alt={t('homePage.teamImageAlt')}
-                className="relative rounded-2xl shadow-xl w-full object-cover"
+                containerClassName="relative rounded-2xl shadow-xl w-full overflow-hidden aspect-[4/3]"
+                className="object-cover"
                 loading="lazy"
               />
             </div>
@@ -112,14 +114,6 @@ const HomePage: React.FC = () => {
       </AnimatedItem>
 
       <AnimatedItem as="section" id="before-after" className="py-16 bg-white overflow-hidden relative">
-        {/* Subtle Decorative Sparkles */}
-        <div className="pointer-events-none absolute top-10 left-10 text-brand-teal/40 animate-sparkle">
-          <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5z"/></svg>
-        </div>
-        <div className="pointer-events-none absolute bottom-12 right-12 text-brand-cyan/40 animate-sparkle-delayed">
-          <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5z"/></svg>
-        </div>
-
         <PageContainer className="relative z-10">
           <SectionTitle 
             title={t('homePage.beforeAfterTitle')} 

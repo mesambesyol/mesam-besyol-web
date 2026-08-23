@@ -6,6 +6,7 @@ import { SERVICES_DATA } from '../data/services';
 import { useLanguage } from '../contexts/LanguageContext';
 import MetaTags from '../components/MetaTags';
 import ServicePageCTA from '../components/ServicePageCTA';
+import ProgressiveImage from '../components/ProgressiveImage';
 
 const ServiceDetailPage: React.FC = () => {
   const { slug } = ReactRouterDom.useParams<{ slug: string }>();
@@ -48,11 +49,12 @@ const ServiceDetailPage: React.FC = () => {
                         <h1 className="text-3xl sm:text-4xl font-bold text-brand-blue mb-3">{name}</h1>
                     </header>
 
-                    <img 
+                    <ProgressiveImage 
                         src={service.imageUrl} 
                         alt={name} 
-                        className="w-full h-auto max-h-[500px] object-cover rounded-xl shadow-md mb-8" 
-                        loading="lazy"
+                        containerClassName="w-full max-h-[500px] rounded-xl shadow-md mb-8 overflow-hidden aspect-[16/9]"
+                        className="object-cover" 
+                        loading="eager"
                     />
 
                     <div 

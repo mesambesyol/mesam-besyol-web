@@ -117,14 +117,16 @@ const BeforeAfterGallery: React.FC = () => {
         <img
           src="https://i.imgur.com/trE8QJV.jpg"
           alt={t('homePage.beforeAlt')}
-          loading="lazy"
+          loading="eager"
+          referrerPolicy="no-referrer"
           onLoad={() => setIsLoadedBefore(true)}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isLoadedBefore ? 'opacity-100' : 'opacity-0'}`}
         />
         <img
           src="https://i.imgur.com/57PAVKb.jpg"
           alt={t('homePage.afterAlt')}
-          loading="lazy"
+          loading="eager"
+          referrerPolicy="no-referrer"
           onLoad={() => setIsLoadedAfter(true)}
           className={`absolute inset-0 w-full h-full object-cover after-image transition-opacity duration-500 ${isLoadedAfter ? 'opacity-100' : 'opacity-0'}`}
         />

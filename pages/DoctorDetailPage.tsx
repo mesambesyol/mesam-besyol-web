@@ -8,6 +8,7 @@ import { UserCircleIcon, AcademicCapIcon, ClipboardDocumentListIcon, BriefcaseIc
 import { useLanguage } from '../contexts/LanguageContext';
 import { DoctorDetailSection } from '../types';
 import MetaTags from '../components/MetaTags';
+import ProgressiveImage from '../components/ProgressiveImage';
 
 const getSectionIcon = (iconKey?: DoctorDetailSection['icon']) => {
   const iconProps = { className: "w-7 h-7 text-brand-teal mr-4 flex-shrink-0" };
@@ -61,11 +62,12 @@ const DoctorDetailPage: React.FC = () => {
                 <div className="bg-white rounded-2xl border border-slate-100 shadow-xl overflow-hidden">
                   <div className="aspect-w-1 aspect-h-1">
                     {hasRealImage ? (
-                      <img
-                        className="w-full h-full object-cover object-top"
+                      <ProgressiveImage
+                        containerClassName="w-full aspect-square"
+                        className="object-top"
                         src={doctor.imageUrl}
                         alt={doctor.name}
-                        loading="lazy"
+                        loading="eager"
                       />
                     ) : (
                       <div className="w-full h-full bg-gray-200 flex items-center justify-center">

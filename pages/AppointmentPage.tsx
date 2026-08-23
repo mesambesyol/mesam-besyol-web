@@ -5,6 +5,7 @@ import PageContainer from '../components/PageContainer';
 import SectionTitle from '../components/SectionTitle';
 import { useLanguage } from '../contexts/LanguageContext';
 import MetaTags from '../components/MetaTags';
+import ProgressiveImage from '../components/ProgressiveImage';
 
 const AppointmentPage: React.FC = () => {
   const { t } = useLanguage();
@@ -45,11 +46,12 @@ const AppointmentPage: React.FC = () => {
           
           <div className="mt-10 max-w-6xl mx-auto lg:grid lg:grid-cols-2 lg:gap-x-12 lg:items-start">
             <div className="mb-10 lg:mb-0 lg:sticky lg:top-28">
-              <img
+              <ProgressiveImage
                 src="https://i.imgur.com/YlYkPs3.jpeg"
                 alt={t('careerForm.visualAlt')}
-                className="rounded-2xl shadow-xl object-cover w-full h-auto max-h-[500px] lg:max-h-[calc(100vh-8rem)]"
-                loading="lazy"
+                containerClassName="rounded-2xl shadow-xl w-full max-h-[500px] lg:max-h-[calc(100vh-8rem)] overflow-hidden aspect-[4/3]"
+                className="object-cover"
+                loading="eager"
               />
             </div>
 

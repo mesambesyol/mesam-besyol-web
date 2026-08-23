@@ -39,14 +39,15 @@ const ProgressiveImage: React.FC<ProgressiveImageProps> = ({
         </div>
       )}
 
-      {/* The Actual Image with Smooth Transition */}
+      {/* Direct image with no-referrer for reliable loading & smooth fade */}
       <img
         src={src}
         alt={alt}
         loading={loading}
+        referrerPolicy="no-referrer"
         onLoad={() => setIsLoaded(true)}
         onError={() => setHasError(true)}
-        className={`w-full h-full object-cover transition-all duration-700 ease-out ${
+        className={`w-full h-full object-cover transition-all duration-500 ease-out ${
           isLoaded ? 'opacity-100 scale-100 filter-none' : 'opacity-0 scale-105 blur-sm'
         } ${className}`}
         {...props}

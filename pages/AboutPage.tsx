@@ -1,4 +1,3 @@
-
 import React from 'react';
 import PageContainer from '../components/PageContainer';
 import SectionTitle from '../components/SectionTitle';
@@ -6,6 +5,7 @@ import * as ReactRouterDom from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import AnimatedItem from '../components/AnimatedItem';
 import MetaTags from '../components/MetaTags';
+import ProgressiveImage from '../components/ProgressiveImage';
 
 const AboutPage: React.FC = () => {
   const { t } = useLanguage();
@@ -21,11 +21,12 @@ const AboutPage: React.FC = () => {
           
           <AnimatedItem className="grid md:grid-cols-2 gap-12 items-center mb-12">
             <div>
-              <img 
+              <ProgressiveImage 
                 src="https://i.imgur.com/YlYkPs3.jpeg" 
                 alt={t('aboutPage.clinicImageAlt1')}
-                className="rounded-lg shadow-xl object-cover w-full h-auto aspect-[4/3]"
-                loading="lazy"
+                containerClassName="rounded-2xl shadow-xl overflow-hidden aspect-[4/3] w-full"
+                className="object-cover"
+                loading="eager"
               />
             </div>
             <div className="text-gray-700 space-y-6">
@@ -92,10 +93,11 @@ const AboutPage: React.FC = () => {
           </AnimatedItem>
 
            <AnimatedItem className="mt-16 text-center">
-              <img 
+              <ProgressiveImage 
                 src="https://i.imgur.com/EB1IW9r.jpeg" 
                 alt={t('aboutPage.teamImageAlt2')}
-                className="rounded-lg shadow-xl mx-auto"
+                containerClassName="rounded-2xl shadow-xl mx-auto overflow-hidden max-w-4xl"
+                className="object-cover"
                 loading="lazy"
               />
               <p className="mt-4 text-gray-600 italic">{t('aboutPage.teamImageCaption')}</p>
