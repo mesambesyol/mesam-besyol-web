@@ -134,15 +134,17 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ slides, autoPlayInterval = 5000
         className="flex transition-transform duration-700 ease-in-out h-full"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
-        {slides.map((slide) => (
-          <div key={slide.id} className="relative w-full h-full flex-shrink-0">
+        {slides.map((slide, index) => (
+          <div key={slide.id} className="relative w-full h-full flex-shrink-0 bg-slate-900">
             <img
               src={slide.imageUrl}
-              alt={t(slide.titleKey as any)} // Cast as any to satisfy t's specific key type
-              className="w-full h-full object-cover"
-              loading="lazy"
+              alt={t(slide.titleKey as any)}
+              className="w-full h-full object-cover transition-opacity duration-700 ease-out"
+              loading={index === 0 ? "eager" : "lazy"}
+              // @ts-ignore
+              fetchPriority={index === 0 ? "high" : "auto"}
             />
-            <div className="absolute inset-0 bg-black bg-opacity-50" />
+            <div className="absolute inset-0 bg-black/50" />
             <div className={`absolute inset-0 flex flex-col items-center justify-center text-center p-4 sm:p-8 hero-text-container ${isTextVisible ? 'visible' : ''}`}>
               <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
                 {t(slide.titleKey as any)}

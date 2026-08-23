@@ -2,6 +2,7 @@ import React from 'react';
 import * as ReactRouterDom from 'react-router-dom';
 import { Service } from '../types';
 import { useLanguage } from '../contexts/LanguageContext';
+import ProgressiveImage from './ProgressiveImage';
 
 interface ServiceCardProps {
   service: Service;
@@ -27,11 +28,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFeatured = false }
           </div>
         ) : (
           <div className="h-48 overflow-hidden flex-shrink-0 relative">
-            <img 
-              className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" 
+            <ProgressiveImage 
               src={service.imageUrl} 
-              alt={name} 
-              loading="lazy" 
+              alt={name}
+              containerClassName="w-full h-full"
+              className="transition-transform duration-500 ease-out group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
           </div>

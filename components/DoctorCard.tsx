@@ -3,6 +3,7 @@ import * as ReactRouterDom from 'react-router-dom';
 import { Doctor } from '../types';
 import { AcademicCapIcon, UserCircleIcon } from '../constants/icons';
 import { useLanguage } from '../contexts/LanguageContext';
+import ProgressiveImage from './ProgressiveImage';
 
 interface DoctorCardProps {
   doctor: Doctor;
@@ -22,14 +23,14 @@ const DoctorCard: React.FC<DoctorCardProps> = ({ doctor }) => {
       aria-label={`${t('buttons.viewProfile')} ${doctor.name}`}
     >
       <div className="relative bg-white rounded-2xl border border-slate-100/90 shadow-sm hover:shadow-xl hover:shadow-slate-900/20 overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1.5 aspect-[3/4]">
-        {/* Background Image */}
+        {/* Background Image with Skeleton & Progressive Loading */}
         <div className="absolute inset-0">
           {hasRealImage ? (
-            <img
-              className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+            <ProgressiveImage
               src={doctor.imageUrl}
               alt={doctor.name}
-              loading="lazy"
+              containerClassName="w-full h-full"
+              className="object-top transition-transform duration-500 ease-out group-hover:scale-105"
             />
           ) : (
             <div className="w-full h-full bg-slate-100 flex items-center justify-center">

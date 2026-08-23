@@ -3,6 +3,7 @@ import * as ReactRouterDom from 'react-router-dom';
 import { BlogPost } from '../types';
 import { CalendarDaysIcon, UserCircleIcon } from '../constants/icons';
 import { useLanguage } from '../contexts/LanguageContext';
+import ProgressiveImage from './ProgressiveImage';
 
 interface BlogPostCardProps {
   post: BlogPost;
@@ -29,11 +30,11 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
     >
       <div className="relative flex flex-col h-full bg-white rounded-2xl border border-slate-100/90 shadow-sm hover:shadow-xl hover:shadow-brand-blue/10 overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1.5">
         <div className="flex-shrink-0 h-48 sm:h-52 overflow-hidden relative">
-          <img 
-            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" 
+          <ProgressiveImage 
             src={post.imageUrl} 
             alt={title} 
-            loading="lazy" 
+            containerClassName="w-full h-full"
+            className="transition-transform duration-500 ease-out group-hover:scale-105"
           />
         </div>
         <div className="p-6 flex flex-col flex-grow relative z-10">

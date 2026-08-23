@@ -4,6 +4,8 @@ import { useLanguage } from '../contexts/LanguageContext';
 const BeforeAfterGallery: React.FC = () => {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isUserInteracting, setIsUserInteracting] = useState(false);
+  const [isLoadedBefore, setIsLoadedBefore] = useState(false);
+  const [isLoadedAfter, setIsLoadedAfter] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const animFrameRef = useRef<number | null>(null);
   const autoDemoTimerRef = useRef<NodeJS.Timeout | null>(null);
@@ -96,26 +98,35 @@ const BeforeAfterGallery: React.FC = () => {
     };
   }, [isUserInteracting]);
 
+  const allLoaded = isLoadedBefore && isLoadedAfter;
+
   return (
     <div className="max-w-4xl mx-auto space-y-4">
       <div 
         ref={containerRef}
-        className="relative w-full aspect-[4/3] sm:aspect-[16/9] overflow-hidden select-none group rounded-2xl border border-slate-100 shadow-2xl comparison-slider"
+        className="relative w-full aspect-[4/3] sm:aspect-[16/9] overflow-hidden select-none group rounded-2xl border border-slate-100 shadow-2xl comparison-slider bg-slate-200"
         style={{ '--position': `${sliderPosition}%` } as React.CSSProperties}
         onMouseEnter={() => setIsUserInteracting(true)}
         onMouseLeave={resetAutoDemoTimer}
       >
+        {/* Shimmer Skeleton until both before/after images load */}
+        {!allLoaded && (
+          <div className="absolute inset-0 z-0 bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 animate-pulse" />
+        )}
+
         <img
           src="https://i.imgur.com/trE8QJV.jpg"
           alt={t('homePage.beforeAlt')}
           loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover"
+          onLoad={() => setIsLoadedBefore(true)}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isLoadedBefore ? 'opacity-100' : 'opacity-0'}`}
         />
         <img
           src="https://i.imgur.com/57PAVKb.jpg"
           alt={t('homePage.afterAlt')}
           loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover after-image"
+          onLoad={() => setIsLoadedAfter(true)}
+          className={`absolute inset-0 w-full h-full object-cover after-image transition-opacity duration-500 ${isLoadedAfter ? 'opacity-100' : 'opacity-0'}`}
         />
         <div 
           className="absolute inset-y-0 w-1 bg-white/90 cursor-ew-resize slider-handle shadow-md z-10"
@@ -128,7 +139,7 @@ const BeforeAfterGallery: React.FC = () => {
         </div>
 
         {/* Subtle Live Demo Hint */}
-        {!isUserInteracting && (
+        {!isUserInteracting && allLoaded && (
           <div className="absolute top-4 left-4 bg-slate-900/60 backdrop-blur-md text-white text-[11px] font-medium px-3 py-1 rounded-full border border-white/20 pointer-events-none transition-opacity duration-300 flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping inline-block" />
             <span>Canlı Önizleme / Sürükleyin</span>
@@ -136,7 +147,7 @@ const BeforeAfterGallery: React.FC = () => {
         )}
       </div>
 
-      {/* Case Info and Mandatory Legal Disclaimer (Yönetmelik Madde 7 / 1-k) */}
+      {/* Case Info and Mandatory Legal Disclaimer */}
       <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center space-y-2">
         <p className="text-xs sm:text-sm font-medium text-slate-700">
           {t('homePage.beforeAfterCaseInfo')}
