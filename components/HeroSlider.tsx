@@ -66,6 +66,10 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ slides, autoPlayInterval = 5000
   };
   
   const handleCtaClick = (cta: CtaButtonConfig) => {
+    if (cta.path.startsWith('http')) {
+      window.open(cta.path, '_blank', 'noopener,noreferrer');
+      return;
+    }
     if (cta.scrollToId) {
       navigate(cta.path, { state: { scrollToId: cta.scrollToId } });
     } else {

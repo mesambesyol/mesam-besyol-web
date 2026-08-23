@@ -278,10 +278,10 @@ const Navbar: React.FC = () => {
               animate={{ opacity: 1, y: 0, scaleY: 1 }}
               exit={{ opacity: 0, y: -10, scaleY: 0.95 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:hidden bg-white/95 backdrop-blur-md shadow-2xl border-b border-gray-100 absolute top-full left-0 right-0 z-40 origin-top" 
+              className="lg:hidden bg-white/95 backdrop-blur-md shadow-2xl border-b border-gray-100 absolute top-full left-0 right-0 z-40 origin-top max-h-[calc(100vh-4rem)] overflow-y-auto" 
               id="mobile-menu"
             >
-              <nav className="px-4 pt-3 pb-5 space-y-1.5 sm:px-6 overflow-hidden" role="navigation" aria-label="Mobil ana navigasyon">
+              <nav className="px-4 pt-3 pb-5 space-y-1.5 sm:px-6" role="navigation" aria-label="Mobil ana navigasyon">
                 <motion.div
                   initial="hidden"
                   animate="visible"
