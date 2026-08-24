@@ -1,8 +1,8 @@
+
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { InstagramIcon } from '../constants/icons';
 import SectionTitle from './SectionTitle';
-import ProgressiveImage from './ProgressiveImage';
 
 const INSTAGRAM_POSTS = [
   { id: 1, imageUrl: 'https://i.imgur.com/50EueFr.jpeg', altKey: 'meta.home.description' },
@@ -30,15 +30,15 @@ const InstagramFeed: React.FC = () => {
             href={instagramProfileUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="block aspect-square rounded-2xl overflow-hidden relative group instagram-post shadow-sm border border-slate-100"
+            className="block aspect-square rounded-lg overflow-hidden relative group instagram-post"
           >
-            <ProgressiveImage 
+            <img 
               src={post.imageUrl} 
               alt={t(post.altKey as any)}
-              containerClassName="w-full h-full"
-              className="transition-transform duration-500 group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
             />
-            <div className="absolute inset-0 bg-black/40 flex items-center justify-center overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute inset-0 bg-black/40 flex items-center justify-center overlay">
               <InstagramIcon className="w-10 h-10 text-white" />
             </div>
           </a>
@@ -49,7 +49,7 @@ const InstagramFeed: React.FC = () => {
           href={instagramProfileUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white px-8 py-3.5 rounded-2xl hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 font-medium text-base shadow-md"
+          className="inline-block bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 font-medium text-lg"
         >
           {t('homePage.instagram.viewProfile')}
         </a>

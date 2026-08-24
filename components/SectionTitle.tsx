@@ -9,7 +9,7 @@ interface SectionTitleProps {
   theme?: 'light' | 'dark';
 }
 
-const SectionTitle: React.FC<SectionTitleProps> = ({ title, subtitle, className = '', theme = 'light' }) => {
+const SectionTitle: React.FC<SectionTitleProps> = ({ title, subtitle, className, theme = 'light' }) => {
   const titleColor = theme === 'dark' ? 'text-white' : 'text-brand-blue';
   const subtitleColor = theme === 'dark' ? 'text-sky-200' : 'text-gray-600';
   const dividerColor = 'bg-brand-teal';
@@ -18,16 +18,15 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title, subtitle, className 
   return (
     <div 
       ref={ref}
-      className={`mb-12 text-center section-title-wrapper ${isVisible ? 'is-visible' : ''} ${className}`}
+      className={`mb-12 text-center section-title-wrapper ${isVisible ? 'is-visible' : ''} ${className || ''}`}
     >
       <h2 className={`text-3xl font-bold tracking-tight sm:text-4xl ${titleColor}`}>{title}</h2>
       {subtitle && <p className={`mt-4 max-w-3xl mx-auto text-lg ${subtitleColor}`}>{subtitle}</p>}
       <div className="mt-5 flex justify-center divider-container">
-        <div className={`h-1.5 ${dividerColor} rounded-full transition-all duration-700 ease-out ${isVisible ? 'w-24' : 'w-8 opacity-50'}`}></div>
+        <div className={`w-24 h-1 ${dividerColor} rounded-full`}></div>
       </div>
     </div>
   );
 };
 
 export default SectionTitle;
-

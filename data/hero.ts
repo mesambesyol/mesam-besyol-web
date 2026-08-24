@@ -8,7 +8,7 @@ export const HERO_SLIDES_DATA: HeroSlideItem[] = [
     titleKey: 'heroSlider.slide1.title',
     subtitleKey: 'heroSlider.slide1.subtitle',
     cta1: { textKey: 'navbar.services', path: '/hizmetlerimiz', variant: 'primary' },
-    cta2: { textKey: 'buttons.whatsappAppointment', path: 'https://wa.me/905366549868', variant: 'secondary' },
+    cta2: { textKey: 'buttons.career', path: '/randevu', variant: 'secondary' },
   },
   {
     id: 'slide4',
@@ -16,7 +16,7 @@ export const HERO_SLIDES_DATA: HeroSlideItem[] = [
     titleKey: 'heroSlider.slide4.title',
     subtitleKey: 'heroSlider.slide4.subtitle',
     cta1: { textKey: 'navbar.contact', path: '/iletisim', variant: 'primary' },
-    cta2: { textKey: 'navbar.quiz', path: '/test', variant: 'secondary' },
+    cta2: { textKey: 'buttons.career', path: '/randevu', variant: 'secondary' },
   },
   {
     id: 'slide2',
@@ -32,6 +32,6 @@ export const HERO_SLIDES_DATA: HeroSlideItem[] = [
     titleKey: 'heroSlider.slide3.title',
     subtitleKey: 'heroSlider.slide3.subtitle',
     cta1: { textKey: 'navbar.doctors', path: '/hekimlerimiz', variant: 'primary' },
-    cta2: { textKey: 'navbar.blog', path: '/blog', variant: 'secondary' },
+    cta2: { textKey: 'buttons.career', path: '/randevu', variant: 'secondary' },
   },
 ];

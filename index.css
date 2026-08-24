@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
 
 @tailwind base;
@@ -20,175 +21,143 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 html {
   scroll-behavior: smooth;
 }
-
-/* Silky smooth section fade-in with early trigger */
 .fade-in-section {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(20px);
+  transition: opacity 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   will-change: opacity, transform;
 }
-
 .fade-in-section.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Section Title Reveal */
-.section-title-wrapper {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-.section-title-wrapper.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .content-fade {
-  transition: opacity 200ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
 }
-
 .content-fading-out {
   opacity: 0;
 }
-
-/* Button Shimmer Effect */
-.btn-shimmer {
-  position: relative;
-  overflow: hidden;
+/* Hero Slider Text Animation */
+.hero-text-container > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
-
-.btn-shimmer::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    60deg,
-    transparent 20%,
-    rgba(255, 255, 255, 0.15) 35%,
-    rgba(255, 255, 255, 0.25) 50%,
-    rgba(255, 255, 255, 0.15) 65%,
-    transparent 80%
-  );
-  transform: translateX(-100%);
-  transition: transform 0.75s ease-in-out;
+.hero-text-container.visible > h1 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 200ms;
 }
-
-.btn-shimmer:hover::after {
-  transform: translateX(100%);
+.hero-text-container.visible > p {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 400ms;
 }
-
-/* No scrollbar utility for clean touch carousel */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+.hero-text-container.visible > div { /* The CTA button container */
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 600ms;
 }
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* Section Title Animation */
+.section-title-wrapper > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-
+.section-title-wrapper.is-visible > h2 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 100ms;
+}
+.section-title-wrapper.is-visible > p {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 250ms;
+}
+.section-title-wrapper.is-visible > .divider-container {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 400ms;
+}
 /* Accordion Styles */
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: max-height 0.4s ease-in-out;
 }
-
 .accordion-content.open {
-  max-height: 500px;
+  max-height: 500px; /* Adjust if content is taller */
 }
-
 .accordion-icon {
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.4s ease;
 }
-
 .accordion-icon.open {
   transform: rotate(180deg);
 }
-
 /* Before & After Slider */
 .comparison-slider {
   --position: 50%;
 }
-
 .comparison-slider .after-image {
   clip-path: polygon(0 0, var(--position) 0, var(--position) 100%, 0 100%);
 }
-
 .comparison-slider .slider-handle {
   left: var(--position);
 }
-
 /* Spinner for AI */
 .spinner {
-  border: 3px solid rgba(0, 0, 0, 0.1);
-  width: 2rem;
-  height: 2rem;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 2rem; /* 32px */
+  height: 2rem; /* 32px */
   border-radius: 50%;
-  border-left-color: #0D9488;
-  animation: spin 0.8s linear infinite;
+  border-left-color: #0D9488; /* brand-teal */
+  animation: spin 1s ease infinite;
 }
-
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
 /* FAQ Accordion in Service Details */
 details.faq-item {
-  background-color: #F9FAFB;
-  border-radius: 0.75rem;
+  background-color: #F9FAFB; /* gray-50 */
+  border-radius: 0.5rem;
   margin-bottom: 0.75rem;
-  border: 1px solid #E5E7EB;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  border: 1px solid #E5E7EB; /* gray-200 */
 }
-
 details.faq-item summary {
-  padding: 1rem 1.25rem;
+  padding: 1rem;
   font-weight: 600;
-  color: #005A9C;
+  color: #005A9C; /* brand-blue */
   cursor: pointer;
-  list-style: none;
+  list-style: none; /* Remove default marker */
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: background-color 0.2s ease;
 }
-
-details.faq-item summary:hover {
-  background-color: #F3F4F6;
+ details.faq-item summary:hover {
+  background-color: #F3F4F6; /* gray-100 */
 }
-
 details.faq-item summary::-webkit-details-marker {
-  display: none;
+  display: none; /* Hide Safari marker */
 }
-
 details.faq-item summary::after {
   content: '+';
   font-size: 1.5rem;
   font-weight: 400;
-  color: #0D9488;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #0D9488; /* brand-teal */
+  transition: transform 0.3s ease;
 }
-
 details.faq-item[open] summary {
   border-bottom: 1px solid #E5E7EB;
 }
-
 details.faq-item[open] summary::after {
   transform: rotate(45deg);
 }
-
 details.faq-item .faq-answer {
-  padding: 1rem 1.25rem;
-  color: #4B5563;
-  line-height: 1.65;
+  padding: 1rem;
+  color: #4B5563; /* gray-600 */
+  line-height: 1.6;
 }
 
 /* AI Chatbot Styles */
@@ -198,26 +167,24 @@ details.faq-item .faq-answer {
   right: 1.5rem;
   border-radius: 9999px;
   padding: 0.75rem 1.25rem;
-  background-color: #005A9C;
+  background-color: #005A9C; /* brand-blue */
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
   font-weight: 600;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s ease;
   z-index: 1000;
   border: none;
 }
-
 .chatbot-fab:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-  background-color: #0D9488;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  background-color: #0D9488; /* brand-teal */
 }
-
 .chat-window {
   position: fixed;
   bottom: 6rem;
@@ -226,25 +193,23 @@ details.faq-item .faq-answer {
   max-width: 400px;
   height: 70vh;
   max-height: 600px;
-  background-color: #F9FAFB;
+  background-color: #F9FAFB; /* gray-50 */
   border-radius: 1rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
   transform-origin: bottom right;
   z-index: 1000;
 }
-
 .chat-window.hidden {
-  transform: scale(0.9) translateY(20px);
+  transform: scale(0.5) translateY(100px);
   opacity: 0;
   pointer-events: none;
 }
-
 .chat-header {
-  background-color: #005A9C;
+  background-color: #005A9C; /* brand-blue */
   color: white;
   padding: 1rem;
   display: flex;
@@ -252,7 +217,6 @@ details.faq-item .faq-answer {
   align-items: center;
   flex-shrink: 0;
 }
-
 .chat-messages {
   flex-grow: 1;
   overflow-y: auto;
@@ -261,33 +225,29 @@ details.faq-item .faq-answer {
   flex-direction: column;
   gap: 0.75rem;
 }
-
 .chat-bubble {
   max-width: 80%;
   padding: 0.75rem 1rem;
   border-radius: 1.25rem;
   line-height: 1.5;
 }
-
 .chat-bubble.user {
-  background-color: #0D9488;
+  background-color: #0D9488; /* brand-teal */
   color: white;
   align-self: flex-end;
   border-bottom-right-radius: 0.25rem;
 }
-
 .chat-bubble.model {
   background-color: #FFFFFF;
-  color: #374151;
+  color: #374151; /* gray-700 */
   align-self: flex-start;
   border-bottom-left-radius: 0.25rem;
   box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
-
 .chat-input-form {
   display: flex;
   padding: 0.75rem;
-  border-top: 1px solid #E5E7EB;
+  border-top: 1px solid #E5E7EB; /* gray-200 */
   background-color: #FFFFFF;
   flex-shrink: 0;
 }
@@ -296,7 +256,6 @@ details.faq-item .faq-answer {
 .nav-link-desktop {
   position: relative;
 }
-
 .nav-link-desktop::after {
   content: '';
   position: absolute;
@@ -305,22 +264,21 @@ details.faq-item .faq-answer {
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: #0D9488;
+  background-color: #0D9488; /* brand-teal */
   transform-origin: bottom right;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.25s ease-out;
 }
-
 .nav-link-desktop:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
 
-/* Subtle, Elegant Shimmer for CTA Buttons */
+/* Shimmer Animation for CTA Buttons */
 @keyframes shimmer-sweep {
   0% {
     transform: translateX(-150%) skewX(-20deg);
   }
-  30%, 100% {
+  40%, 100% {
     transform: translateX(200%) skewX(-20deg);
   }
 }
@@ -335,130 +293,151 @@ details.faq-item .faq-answer {
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%;
+  width: 60%;
   height: 100%;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.35),
     transparent
   );
-  animation: shimmer-sweep 5s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  animation: shimmer-sweep 3.5s infinite cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
 }
 
 /* Floating Blobs / Meshes Animation */
 @keyframes float-slow {
   0%, 100% {
-    transform: translate(0, 0) scale(1);
+    transform: translate(0, 0) rotate(0deg) scale(1);
   }
-  50% {
-    transform: translate(20px, -20px) scale(1.04);
+  33% {
+    transform: translate(25px, -30px) rotate(8deg) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(-6deg) scale(0.95);
   }
 }
 
 @keyframes float-reverse {
   0%, 100% {
-    transform: translate(0, 0) scale(1);
+    transform: translate(0, 0) rotate(0deg) scale(1);
   }
-  50% {
-    transform: translate(-20px, 18px) scale(1.04);
+  33% {
+    transform: translate(-30px, 25px) rotate(-10deg) scale(1.08);
+  }
+  66% {
+    transform: translate(25px, -20px) rotate(8deg) scale(0.92);
   }
 }
 
 .animate-blob-1 {
-  animation: float-slow 20s ease-in-out infinite;
+  animation: float-slow 18s ease-in-out infinite;
 }
 
 .animate-blob-2 {
-  animation: float-reverse 24s ease-in-out infinite;
+  animation: float-reverse 22s ease-in-out infinite;
+}
+
+/* 3D Tilt Card Container */
+.tilt-card-wrapper {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.tilt-card {
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 /* Subtle Sparkle Particle Animation */
 @keyframes sparkle-pulse {
   0%, 100% {
-    opacity: 0.25;
-    transform: scale(0.9);
+    opacity: 0.2;
+    transform: scale(0.8) rotate(0deg);
   }
   50% {
-    opacity: 0.75;
-    transform: scale(1.08);
+    opacity: 0.9;
+    transform: scale(1.2) rotate(90deg);
   }
 }
 
 .animate-sparkle {
-  animation: sparkle-pulse 3.5s ease-in-out infinite;
+  animation: sparkle-pulse 3s ease-in-out infinite;
 }
 
 .animate-sparkle-delayed {
-  animation: sparkle-pulse 3.5s ease-in-out infinite 1.75s;
+  animation: sparkle-pulse 3s ease-in-out infinite 1.5s;
 }
 
-/* Icon Subtle Lift on Hover */
+/* Icon Pulse and Bounce on Hover */
 .group:hover .icon-bounce {
-  transform: scale(1.08) translateY(-1px);
+  transform: scale(1.12) translateY(-2px);
+  filter: drop-shadow(0 4px 6px rgba(13, 148, 136, 0.3));
 }
 
 .icon-bounce {
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* Duty Live Radar Pulse */
 @keyframes duty-radar {
   0% {
-    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
   }
   70% {
-    box-shadow: 0 0 0 7px rgba(34, 197, 94, 0);
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
   }
   100% {
+    transform: scale(0.95);
     box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
   }
 }
 
 .live-duty-pulse {
-  animation: duty-radar 2.2s infinite cubic-bezier(0.16, 1, 0.3, 1);
+  animation: duty-radar 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
 }
 
-/* Subtle, Gentle Pulse Animation (No harsh button scaling) */
+/* CTA Pulse Animation */
 .cta-pulse {
-  animation: cta-pulse-animation 3s infinite;
+  animation: cta-pulse-animation 2.5s infinite;
 }
-
 @keyframes cta-pulse-animation {
   0% {
-    box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.45);
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7);
   }
   70% {
-    box-shadow: 0 0 0 8px rgba(13, 148, 136, 0);
+    transform: scale(1.03);
+    box-shadow: 0 0 0 10px rgba(13, 148, 136, 0);
   }
   100% {
+    transform: scale(1);
     box-shadow: 0 0 0 0 rgba(13, 148, 136, 0);
   }
 }
+
+/* Infinite Scroll Animation is now in tailwind.config.js */
 
 /* === DEFINITIVE KVKK PAGE FIX === */
 #bolum1, #bolum2, #bolum3, #bolum4, #bolum5, #bolum6, #bolum7 {
   scroll-margin-top: 140px !important;
 }
-
 #kvkk-article h2 {
   text-align: center; color: #005A9C; font-size: 1.875rem; font-weight: 700; margin-bottom: 2rem !important;
 }
-
 #kvkk-article h3 {
   color: #1F2937; font-size: 1.5rem; font-weight: 600; margin-top: 2.5rem !important; margin-bottom: 1.5rem !important;
   border-bottom: 1px solid #E5E7EB; padding-bottom: 0.5rem;
 }
-
 #kvkk-article h4 {
   color: #374151; font-size: 1.25rem; font-weight: 600; margin-top: 2rem !important; margin-bottom: 1rem !important;
 }
-
 #kvkk-article p {
   line-height: 1.75 !important; margin-bottom: 1.25rem !important;
 }
-
 #kvkk-article ul > li, #kvkk-article ol > li {
   margin-bottom: 1rem !important;
 }

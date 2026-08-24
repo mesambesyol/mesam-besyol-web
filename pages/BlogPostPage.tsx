@@ -8,7 +8,6 @@ import { CalendarDaysIcon, UserCircleIcon } from '../constants/icons';
 import { useLanguage } from '../contexts/LanguageContext';
 import MetaTags from '../components/MetaTags';
 import { SERVICES_DATA } from '../data/services';
-import ProgressiveImage from '../components/ProgressiveImage';
 
 const BlogPostPage: React.FC = () => {
   const { slug } = ReactRouterDom.useParams<{ slug: string }>();
@@ -75,12 +74,11 @@ const BlogPostPage: React.FC = () => {
                   </div>
                 </header>
 
-                <ProgressiveImage 
+                <img 
                   src={post.imageUrl} 
                   alt={title} 
-                  containerClassName="w-full max-h-[500px] rounded-lg shadow-md mb-8 overflow-hidden aspect-[16/9]"
-                  className="object-cover" 
-                  loading="eager"
+                  className="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-md mb-8" 
+                  loading="lazy"
                 />
 
                 <div 
