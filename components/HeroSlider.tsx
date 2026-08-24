@@ -4,7 +4,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import * as ReactRouterDom from 'react-router-dom';
 import { HeroSlideItem, CtaButtonConfig } from '../types';
 import { useLanguage } from '../contexts/LanguageContext';
-import { ChevronLeftIcon, ChevronRightIcon } from '../constants/icons';
+import { ChevronLeftIcon, ChevronRightIcon, WhatsAppIcon } from '../constants/icons';
 
 interface HeroSliderProps {
   slides: HeroSlideItem[];
@@ -66,10 +66,16 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ slides, autoPlayInterval = 5000
   };
   
   const handleCtaClick = (cta: CtaButtonConfig) => {
-    if (cta.scrollToId) {
-      navigate(cta.path, { state: { scrollToId: cta.scrollToId } });
-    } else {
-      navigate(cta.path);
+    if (cta.isExternal && cta.externalUrl) {
+      window.open(cta.externalUrl, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    if (cta.path) {
+      if (cta.scrollToId) {
+        navigate(cta.path, { state: { scrollToId: cta.scrollToId } });
+      } else {
+        navigate(cta.path);
+      }
     }
   };
   
@@ -102,16 +108,18 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ slides, autoPlayInterval = 5000
   }
 
   const getButtonClasses = (variant: CtaButtonConfig['variant']) => {
-    const baseClasses = "flex items-center justify-center px-6 py-3.5 sm:px-8 text-base font-semibold rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 active:scale-[0.98]";
+    const baseClasses = "flex items-center justify-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 text-sm sm:text-base font-semibold rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 active:scale-[0.98]";
     switch (variant) {
+      case 'whatsapp':
+        return `${baseClasses} border border-emerald-400/50 text-white bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 shadow-lg shadow-emerald-950/40 hover:shadow-xl hover:shadow-emerald-500/30 cta-pulse`;
       case 'primary':
         return `${baseClasses} border border-white/40 text-white bg-white/20 hover:bg-white/30 backdrop-blur-md shadow-lg shadow-black/20 hover:shadow-xl btn-shimmer`;
       case 'secondary':
         return `${baseClasses} border border-teal-400/40 text-white bg-gradient-to-r from-brand-teal to-teal-600 hover:from-teal-600 hover:to-teal-700 shadow-lg shadow-teal-900/30 hover:shadow-xl hover:shadow-teal-500/20 btn-shimmer`;
       case 'outline':
-        return `${baseClasses} border border-white/60 text-white bg-black/20 hover:bg-white/15 backdrop-blur-sm shadow-md hover:shadow-lg`;
+        return `${baseClasses} border border-white/60 text-white bg-black/30 hover:bg-white/15 backdrop-blur-sm shadow-md hover:shadow-lg`;
       default:
-        return "";
+        return baseClasses;
     }
   };
 
@@ -130,45 +138,42 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ slides, autoPlayInterval = 5000
         className="flex transition-transform duration-700 ease-in-out h-full"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
-        {slides.map((slide) => (
-          <div key={slide.id} className="relative w-full h-full flex-shrink-0">
-            <img
-              src={slide.imageUrl}
-              alt={t(slide.titleKey as any)} // Cast as any to satisfy t's specific key type
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50" />
-            <div className={`absolute inset-0 flex flex-col items-center justify-center text-center p-4 sm:p-8 hero-text-container ${isTextVisible ? 'visible' : ''}`}>
-              <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
-                {t(slide.titleKey as any)}
-              </h1>
-              <p className="mt-4 max-w-md mx-auto text-lg text-sky-100 sm:text-xl md:mt-6 md:max-w-2xl">
-                {t(slide.subtitleKey as any)}
-              </p>
-              <div className="mt-8 sm:mt-10 w-full max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
-                <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-5">
-                  {slide.cta1 && (
-                     <button
-                        onClick={() => handleCtaClick(slide.cta1!)}
-                        className={getButtonClasses(slide.cta1.variant)}
+        {slides.map((slide) => {
+          const ctas = slide.ctas || [slide.cta1, slide.cta2, slide.cta3].filter(Boolean) as CtaButtonConfig[];
+          return (
+            <div key={slide.id} className="relative w-full h-full flex-shrink-0">
+              <img
+                src={slide.imageUrl}
+                alt={t(slide.titleKey as any)}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50" />
+              <div className={`absolute inset-0 flex flex-col items-center justify-center text-center p-4 sm:p-8 hero-text-container ${isTextVisible ? 'visible' : ''}`}>
+                <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+                  {t(slide.titleKey as any)}
+                </h1>
+                <p className="mt-4 max-w-md mx-auto text-lg text-sky-100 sm:text-xl md:mt-6 md:max-w-2xl">
+                  {t(slide.subtitleKey as any)}
+                </p>
+                <div className="mt-8 sm:mt-10 w-full max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
+                  <div className="flex flex-col items-center gap-3.5 sm:flex-row sm:justify-center sm:gap-4 flex-wrap">
+                    {ctas.map((cta, ctaIdx) => (
+                      <button
+                        key={ctaIdx}
+                        onClick={() => handleCtaClick(cta)}
+                        className={getButtonClasses(cta.variant)}
                       >
-                        {t(slide.cta1.textKey as any)}
+                        {cta.icon === 'whatsapp' && <WhatsAppIcon className="w-5 h-5 flex-shrink-0" />}
+                        <span>{t(cta.textKey as any)}</span>
                       </button>
-                  )}
-                  {slide.cta2 && (
-                     <button
-                        onClick={() => handleCtaClick(slide.cta2!)}
-                        className={getButtonClasses(slide.cta2.variant)}
-                      >
-                        {t(slide.cta2.textKey as any)}
-                      </button>
-                  )}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Navigation Arrows */}

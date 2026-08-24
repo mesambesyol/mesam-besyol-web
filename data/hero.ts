@@ -7,31 +7,51 @@ export const HERO_SLIDES_DATA: HeroSlideItem[] = [
     imageUrl: 'https://i.imgur.com/iGxmYnd.jpeg',
     titleKey: 'heroSlider.slide1.title',
     subtitleKey: 'heroSlider.slide1.subtitle',
-    cta1: { textKey: 'navbar.services', path: '/hizmetlerimiz', variant: 'primary' },
-    cta2: { textKey: 'buttons.career', path: '/randevu', variant: 'secondary' },
+    ctas: [
+      { textKey: 'navbar.doctors', path: '/hekimlerimiz', variant: 'primary' },
+      { textKey: 'navbar.about', path: '/hakkimizda', variant: 'outline' },
+    ],
   },
   {
     id: 'slide4',
     imageUrl: 'https://i.hizliresim.com/et7bzpq.jpg',
     titleKey: 'heroSlider.slide4.title',
     subtitleKey: 'heroSlider.slide4.subtitle',
-    cta1: { textKey: 'navbar.contact', path: '/iletisim', variant: 'primary' },
-    cta2: { textKey: 'buttons.career', path: '/randevu', variant: 'secondary' },
+    ctas: [
+      { textKey: 'navbar.services', path: '/hizmetlerimiz', variant: 'primary' },
+      { 
+        textKey: 'buttons.appointmentWhatsapp', 
+        variant: 'whatsapp', 
+        isExternal: true, 
+        externalUrl: 'https://wa.me/905366549868',
+        icon: 'whatsapp'
+      },
+    ],
   },
   {
     id: 'slide2',
     imageUrl: 'https://i.imgur.com/UTDXF6E.jpeg',
     titleKey: 'heroSlider.slide2.title',
     subtitleKey: 'heroSlider.slide2.subtitle',
-    cta1: { textKey: 'navbar.about', path: '/hakkimizda', variant: 'primary' },
-    cta2: { textKey: 'navbar.contact', path: '/iletisim', variant: 'secondary' },
+    ctas: [
+      { textKey: 'navbar.contact', path: '/iletisim', variant: 'primary' },
+      { textKey: 'navbar.blog', path: '/blog', variant: 'outline' },
+    ],
   },
   {
     id: 'slide3',
     imageUrl: 'https://i.imgur.com/qZQZ3yr.jpeg',
     titleKey: 'heroSlider.slide3.title',
     subtitleKey: 'heroSlider.slide3.subtitle',
-    cta1: { textKey: 'navbar.doctors', path: '/hekimlerimiz', variant: 'primary' },
-    cta2: { textKey: 'buttons.career', path: '/randevu', variant: 'secondary' },
+    ctas: [
+      { textKey: 'navbar.quiz', path: '/test', variant: 'primary' },
+      { 
+        textKey: 'buttons.appointmentWhatsapp', 
+        variant: 'whatsapp', 
+        isExternal: true, 
+        externalUrl: 'https://wa.me/905366549868',
+        icon: 'whatsapp'
+      },
+    ],
   },
 ];

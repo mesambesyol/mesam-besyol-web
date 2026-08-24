@@ -73,9 +73,12 @@ export interface AppointmentData {
 
 export interface CtaButtonConfig {
   textKey: string; 
-  path: string;
-  variant: 'primary' | 'secondary' | 'outline'; 
+  path?: string;
+  variant: 'primary' | 'secondary' | 'outline' | 'whatsapp'; 
   scrollToId?: string; 
+  isExternal?: boolean;
+  externalUrl?: string;
+  icon?: 'whatsapp' | 'info' | 'calendar' | 'blog' | 'quiz' | 'arrow';
 }
 
 export interface HeroSlideItem {
@@ -85,6 +88,8 @@ export interface HeroSlideItem {
   subtitleKey: string; 
   cta1?: CtaButtonConfig;
   cta2?: CtaButtonConfig;
+  cta3?: CtaButtonConfig;
+  ctas?: CtaButtonConfig[];
 }
 
 export interface QuizQuestion {
