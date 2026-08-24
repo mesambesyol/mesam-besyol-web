@@ -9,23 +9,23 @@ interface AnimatedItemProps extends React.HTMLAttributes<HTMLElement> {
 
 const AnimatedItem: React.FC<AnimatedItemProps> = ({ 
   children, 
-  className, 
+  className = '', 
   as: Component = 'div', 
   staggerIndex = 0,
   style,
   ...props 
 }) => {
   const { ref, isVisible } = useScrollAnimation<HTMLElement>();
-  
+
   const combinedStyles: React.CSSProperties = {
     ...style,
-    transitionDelay: `${staggerIndex * 80}ms`,
+    transitionDelay: staggerIndex > 0 ? `${staggerIndex * 60}ms` : undefined,
   };
 
   return (
     <Component
       ref={ref}
-      className={`fade-in-section ${isVisible ? 'is-visible' : ''} ${className || ''}`}
+      className={`fade-in-section ${isVisible ? 'is-visible' : ''} ${className}`}
       style={combinedStyles}
       {...props}
     >

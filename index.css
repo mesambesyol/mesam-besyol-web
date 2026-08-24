@@ -21,10 +21,10 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Silky smooth section fade-in animation (no harsh bouncy overshoot) */
+/* Silky smooth section fade-in with early trigger */
 .fade-in-section {
   opacity: 0;
-  transform: translateY(14px);
+  transform: translateY(16px);
   transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
@@ -34,62 +34,54 @@ html {
   transform: translateY(0);
 }
 
+/* Section Title Reveal */
+.section-title-wrapper {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.section-title-wrapper.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .content-fade {
-  transition: opacity 300ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
 }
 
 .content-fading-out {
   opacity: 0;
 }
 
-/* Hero Slider Text Animation */
-.hero-text-container > * {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+/* Button Shimmer Effect */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-text-container.visible > h1 {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 150ms;
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.15) 35%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0.15) 65%,
+    transparent 80%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.75s ease-in-out;
 }
 
-.hero-text-container.visible > p {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 300ms;
-}
-
-.hero-text-container.visible > div {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 450ms;
-}
-
-/* Section Title Animation */
-.section-title-wrapper > * {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.section-title-wrapper.is-visible > h2 {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 80ms;
-}
-
-.section-title-wrapper.is-visible > p {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 180ms;
-}
-
-.section-title-wrapper.is-visible > .divider-container {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 280ms;
+.btn-shimmer:hover::after {
+  transform: translateX(100%);
 }
 
 /* No scrollbar utility for clean touch carousel */
