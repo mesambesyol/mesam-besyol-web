@@ -29,7 +29,7 @@ const App: React.FC = () => {
   const whatsappLink = `https://wa.me/905366549868`;
 
   return (
-    <ReactRouterDom.HashRouter>
+    <ReactRouterDom.BrowserRouter>
       <ScrollToTop />
       <div className="flex flex-col min-h-screen bg-stone-100 text-gray-800">
         <TopBar />
@@ -70,7 +70,7 @@ const App: React.FC = () => {
           </a>
         </div>
       </div>
-    </ReactRouterDom.HashRouter>
+    </ReactRouterDom.BrowserRouter>
   );
 };
 
