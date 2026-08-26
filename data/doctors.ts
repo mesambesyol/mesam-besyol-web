@@ -253,5 +253,24 @@ export const DOCTORS_DATA: Doctor[] = [
       },
       sections: []
     }
+  },
+  {
+    id: 'dt-senem-koc',
+    name: 'Senem Koç',
+    title: { tr: 'Diş Hekimi', en: 'Dentist', de: 'Zahnärztin' },
+    imageUrl: '/images/doctors/senem-koc.png',
+    bio: { 
+      tr: 'Estetik diş hekimliği ve koruyucu diş sağlığı konularında uzmanlaşmış, güler yüzlü ve deneyimli hekimimiz.',
+      en: 'Specialized in aesthetic dentistry and preventive dental health, our friendly and experienced dentist.',
+      de: 'Spezialisiert auf ästhetische Zahnheilkunde und präventive Zahngesundheit, unsere freundliche und erfahrene Zahnärztin.'
+    },
+    details: {
+      introduction: {
+        tr: 'Senem Koç, kliniğimizde diş hekimi olarak görev yapmakta olup estetik diş hekimliği, restoratif tedaviler ve koruyucu diş sağlığı alanlarında hastalarına nitelikli ve özenli hizmet sunmaktadır.',
+        en: 'Senem Koç serves as a dentist in our clinic, providing qualified and meticulous service to her patients in the fields of aesthetic dentistry, restorative treatments, and preventive dental health.',
+        de: 'Senem Koç ist als Zahnärztin in unserer Klinik tätig und bietet ihren Patienten qualifizierten und sorgfältigen Service in den Bereichen ästhetische Zahnheilkunde, restaurative Behandlungen und präventive Zahngesundheit.'
+      },
+      sections: []
+    }
   }
 ];

@@ -35,7 +35,9 @@ export const deTranslations: TrTranslations = {
     about: "Über uns",
     kvkk: "Datenschutz (KVKK)",
     services: "Leistungen",
+    team: "Unser Team",
     doctors: "Unsere Ärzte",
+    clinicStaff: "Praxisteam",
     blog: "Blog",
     contact: "Kontakt",
     openMenu: "Menü öffnen",
@@ -252,6 +254,19 @@ export const deTranslations: TrTranslations = {
     meetOurDoctors: "Lernen Sie unsere Ärzte kennen",
     doctorsPageCtaText: "Unsere Ärzte erbringen ihre Dienstleistungen unter Anwendung aktueller Behandlungsmethoden und Technologien. Sie können unsere Klinik für Informationen zu Ihrer Mund- und Zahngesundheit kontaktieren.",
   },
+  staffPage: {
+    title: "Unser Praxisteam",
+    subtitle: "Lernen Sie unser freundliches, dynamisches und professionelles Betreuungsteam kennen.",
+    noStaff: "Die Informationen zum Praxisteam werden derzeit aktualisiert.",
+    categories: {
+      all: "Alle",
+      management: "Leitung & Verwaltung",
+      assistant: "Klinikassistenz",
+      reception: "Empfang & Aufnahme"
+    },
+    bottomCtaTitle: "Ein komfortables und herzliches Erlebnis",
+    bottomCtaText: "Vom ersten Moment des Betretens unserer Klinik bis zur Nachbehandlung sind wir für Ihr Wohlbefinden und Ihre Zufriedenheit da.",
+  },
   doctorDetailPage: {
     notFoundTitle: "Arzt nicht gefunden",
     notFoundText: "Der gesuchte Arzt existiert nicht oder seine Informationen werden möglicherweise gerade aktualisiert.",
@@ -348,6 +363,10 @@ export const deTranslations: TrTranslations = {
     doctors: {
       title: "Unsere Ärzte | Mesam Beşyol Zahnklinik Bursa",
       description: "Treffen Sie das erfahrene und kompetente Ärzteteam der Mesam Beşyol Zahnklinik. Informieren Sie sich über unsere Zahnärzte in Bursa."
+    },
+    staff: {
+      title: "Unser Praxisteam | Mesam Beşyol Zahnklinik Bursa",
+      description: "Lernen Sie die Klinikleitung, die zahnmedizinischen Assistenten und das Empfangsteam der Mesam Beşyol Zahnklinik kennen."
     },
     blog: {
       title: "Zahngesundheits-Blog | Mesam Beşyol Zahnklinik",

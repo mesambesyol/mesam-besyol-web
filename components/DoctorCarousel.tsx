@@ -9,14 +9,13 @@ interface DoctorCarouselProps {
 
 const DoctorCarousel: React.FC<DoctorCarouselProps> = ({ doctors }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const isInteracting = useRef(false);
-  const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const isDragging = useRef(false);
 
   if (!doctors || doctors.length === 0) {
     return null;
   }
 
-  // Triple items for seamless infinite auto-scroll and manual scrolling
+  // Triple items for seamless infinite auto-scroll
   const scrollItems = [...doctors, ...doctors, ...doctors];
 
   useEffect(() => {
@@ -24,13 +23,23 @@ const DoctorCarousel: React.FC<DoctorCarouselProps> = ({ doctors }) => {
     if (!container) return;
 
     let animationId: number;
-    const speed = 1.0; // Smooth auto-scroll speed
+    const speed = 0.8; // Smooth auto-scroll speed
+    
+    // Initial scroll position to the middle set
+    if (container.scrollLeft === 0) {
+      container.scrollLeft = container.scrollWidth / 3;
+    }
     let exactScroll = container.scrollLeft;
 
     const step = () => {
-      if (!isInteracting.current && container) {
-        exactScroll += speed;
-        container.scrollLeft = exactScroll;
+      if (container) {
+        if (!isDragging.current) {
+          exactScroll += speed;
+          container.scrollLeft = exactScroll;
+        } else {
+          // Keep exactScroll synced while user is manually dragging/touching
+          exactScroll = container.scrollLeft;
+        }
 
         const singleSetWidth = container.scrollWidth / 3;
         if (container.scrollLeft >= singleSetWidth * 2) {
@@ -40,8 +49,6 @@ const DoctorCarousel: React.FC<DoctorCarouselProps> = ({ doctors }) => {
           exactScroll += singleSetWidth;
           container.scrollLeft = exactScroll;
         }
-      } else if (container) {
-        exactScroll = container.scrollLeft;
       }
       animationId = requestAnimationFrame(step);
     };
@@ -49,35 +56,28 @@ const DoctorCarousel: React.FC<DoctorCarouselProps> = ({ doctors }) => {
     animationId = requestAnimationFrame(step);
     return () => {
       cancelAnimationFrame(animationId);
-      if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
     };
   }, []);
 
-  const handleUserAction = () => {
-    isInteracting.current = true;
-    if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
-    resumeTimeoutRef.current = setTimeout(() => {
-      isInteracting.current = false;
-    }, 2500);
+  const handleTouchStart = () => {
+    isDragging.current = true;
+  };
+
+  const handleTouchEnd = () => {
+    isDragging.current = false;
   };
 
   return (
-    <div className="relative w-full group">
-      {/* Auto-scrolling & Touch swipeable container */}
+    <div className="relative w-full overflow-hidden">
+      {/* Auto-scrolling & touch/swipeable container */}
       <div 
         ref={scrollRef}
-        onTouchStart={handleUserAction}
-        onTouchMove={handleUserAction}
-        onWheel={handleUserAction}
-        onMouseDown={handleUserAction}
-        onMouseEnter={handleUserAction}
-        onMouseLeave={() => {
-          if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
-          resumeTimeoutRef.current = setTimeout(() => {
-            isInteracting.current = false;
-          }, 1000);
-        }}
-        className="overflow-x-auto pb-6 pt-2 scrollbar-none [-ms-overflow-style:none] [scrollbar-width:none]"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onMouseDown={handleTouchStart}
+        onMouseUp={handleTouchEnd}
+        onMouseLeave={handleTouchEnd}
+        className="overflow-x-auto pb-6 pt-2 scrollbar-none [-ms-overflow-style:none] [scrollbar-width:none] cursor-grab active:cursor-grabbing"
         style={{ WebkitOverflowScrolling: 'touch' }}
       >
         <div className="flex w-max gap-4 px-2">
@@ -96,3 +96,5 @@ const DoctorCarousel: React.FC<DoctorCarouselProps> = ({ doctors }) => {
 };
 
 export default DoctorCarousel;
+
+

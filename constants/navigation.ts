@@ -26,7 +26,13 @@ export const NAV_LINKS: NavLinkItem[] = [
       ...serviceLinks
     ]
   },
-  { name: { tr: 'Hekimlerimiz', en: 'Our Doctors', de: 'Unsere Ärzte' }, path: '/hekimlerimiz' },
+  { 
+    name: { tr: 'Ekibimiz', en: 'Our Team', de: 'Unser Team' },
+    children: [
+      { name: { tr: 'Hekimlerimiz', en: 'Our Doctors', de: 'Unsere Ärzte' }, path: '/hekimlerimiz' },
+      { name: { tr: 'Klinik Ekibimiz', en: 'Clinic Staff', de: 'Praxisteam' }, path: '/klinik-ekibimiz' }
+    ]
+  },
   { name: { tr: 'Blog', en: 'Blog', de: 'Blog' }, path: '/blog' },
   { name: { tr: 'Diş Sağlığı Testi', en: 'Dental Health Quiz', de: 'Zahngesundheits-Quiz' }, path: '/test' },
   { name: { tr: 'İletişim', en: 'Contact', de: 'Kontakt' }, path: '/iletisim' },

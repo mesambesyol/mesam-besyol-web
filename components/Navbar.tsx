@@ -3,7 +3,7 @@ import * as ReactRouterDom from 'react-router-dom';
 import { MenuIcon, XMarkIcon, ChevronDownIcon, TurkeyFlagIcon, UKFlagIcon, GermanyFlagIcon, WhatsAppIcon } from '../constants/icons';
 import { NAV_LINKS } from '../constants/navigation';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Language } from '../types';
+import { Language, NavLinkItem } from '../types';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -69,16 +69,22 @@ const Navbar: React.FC = () => {
     isScrolled || !isHomePage ? 'lg:h-20' : 'lg:h-24'
   }`;
 
-  const getLinkClasses = (path?: string) => {
-    const isActive = location.pathname === path;
-    
+  const isLinkActive = (item: NavLinkItem) => {
+    if (item.path && location.pathname === item.path) return true;
+    if (item.children) {
+      return item.children.some((child: NavLinkItem) => child.path && (location.pathname === child.path || (child.path !== '/' && location.pathname.startsWith(child.path))));
+    }
+    return false;
+  };
+
+  const getLinkClasses = (isActive: boolean) => {
     // Optimized padding: px-2 for LG, px-3 for XL to fit German text
     const baseClasses = `px-2 xl:px-3 py-2 rounded-md text-[12px] font-semibold transition-colors cursor-pointer select-none`;
     const themeClasses = isTransparent
       ? 'text-gray-800 hover:text-brand-blue [text-shadow:0_1px_2px_rgba(255,255,255,0.9)]'
       : 'text-gray-600 hover:text-brand-blue';
     const activeClasses = isActive
-      ? (isTransparent ? 'bg-black/10' : 'text-brand-blue')
+      ? (isTransparent ? 'bg-black/10 text-brand-blue' : 'text-brand-blue font-bold')
       : '';
 
     return `${baseClasses} ${themeClasses} ${activeClasses}`;
@@ -192,7 +198,7 @@ const Navbar: React.FC = () => {
                   onMouseEnter={() => setActiveDropdown(getLocalized(link.name))}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <button className={`${getLinkClasses(link.path)} flex items-center gap-1`}>
+                  <button className={`${getLinkClasses(isLinkActive(link))} flex items-center gap-1`}>
                     {getLocalized(link.name)}
                     <ChevronDownIcon className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === getLocalized(link.name) ? 'rotate-180' : ''}`} />
                   </button>
@@ -203,13 +209,17 @@ const Navbar: React.FC = () => {
                       ${activeDropdown === getLocalized(link.name) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'}
                     `}
                   >
-                    <div className="w-64 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-10">
+                    <div className="w-64 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-10 overflow-hidden">
                       <div className="py-1">
                         {link.children.map(child => (
                            <ReactRouterDom.Link
                             key={child.path}
                             to={child.path!}
-                            className="block px-4 py-2 text-[12px] text-gray-700 hover:bg-gray-100 hover:text-brand-blue transition-colors"
+                            className={`block px-4 py-2.5 text-[12px] font-medium transition-colors ${
+                              location.pathname === child.path 
+                                ? 'bg-brand-blue-light text-brand-blue font-bold' 
+                                : 'text-gray-700 hover:bg-gray-100 hover:text-brand-blue'
+                            }`}
                           >
                             {getLocalized(child.name)}
                           </ReactRouterDom.Link>
@@ -222,7 +232,7 @@ const Navbar: React.FC = () => {
                 <ReactRouterDom.Link
                   key={link.path}
                   to={link.path!}
-                  className={`${getLinkClasses(link.path)} nav-link-desktop`}
+                  className={`${getLinkClasses(isLinkActive(link))} nav-link-desktop`}
                   onClick={link.path === '/' ? scrollToTopIfHome : undefined}
                 >
                   {getLocalized(link.name)}

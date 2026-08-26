@@ -105,6 +105,17 @@ export interface QuizResultLevel {
   text: LocalizedString;
 }
 
+export interface StaffMember {
+  id: string;
+  name: string;
+  role: LocalizedString;
+  department: 'management' | 'assistant' | 'reception' | 'all';
+  departmentTitle: LocalizedString;
+  imageUrl?: string;
+  bio?: LocalizedString;
+  order?: number;
+}
+
 export interface FaqItem {
   id: string;
   question: LocalizedString;

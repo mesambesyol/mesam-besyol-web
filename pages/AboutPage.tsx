@@ -13,10 +13,10 @@ const AboutPage: React.FC = () => {
   return (
     <>
       <MetaTags page="about" />
-      <div className="bg-white py-12 sm:py-16 overflow-hidden">
+      <div className="bg-gradient-to-br from-brand-teal via-teal-900 to-brand-blue py-12 sm:py-16 overflow-hidden min-h-screen text-white">
         <PageContainer>
           <AnimatedItem>
-            <SectionTitle title={t('aboutPage.title')} subtitle={t('aboutPage.subtitle')} />
+            <SectionTitle theme="dark" title={t('aboutPage.title')} subtitle={t('aboutPage.subtitle')} />
           </AnimatedItem>
           
           <AnimatedItem className="grid md:grid-cols-2 gap-12 items-center mb-12">
@@ -24,38 +24,38 @@ const AboutPage: React.FC = () => {
               <img 
                 src="https://i.imgur.com/YlYkPs3.jpeg" 
                 alt={t('aboutPage.clinicImageAlt1')}
-                className="rounded-lg shadow-xl object-cover w-full h-auto aspect-[4/3]"
+                className="rounded-xl shadow-2xl object-cover w-full h-auto aspect-[4/3] border border-white/20"
                 loading="lazy"
               />
             </div>
-            <div className="text-gray-700 space-y-6">
+            <div className="text-sky-100 space-y-6">
               <div className="space-y-4 text-justify">
                 <p>{t('aboutPage.introductionText1')}</p>
                 <p>{t('aboutPage.introductionText2')}</p>
-                <p className="font-semibold text-brand-blue">{t('aboutPage.introductionText3')}</p>
+                <p className="font-semibold text-amber-300">{t('aboutPage.introductionText3')}</p>
               </div>
 
-              <hr className="border-t border-gray-200" />
+              <hr className="border-t border-white/20" />
 
               <div>
-                <h3 className="text-2xl font-semibold text-brand-blue">{t('aboutPage.mission')}</h3>
-                <p className="text-justify mt-2">
+                <h3 className="text-2xl font-semibold text-white">{t('aboutPage.mission')}</h3>
+                <p className="text-justify mt-2 text-sky-100">
                   {t('aboutPage.missionText')}
                 </p>
               </div>
               <div>
-                <h3 className="text-2xl font-semibold text-brand-blue">{t('aboutPage.vision')}</h3>
-                <p className="text-justify mt-2">
+                <h3 className="text-2xl font-semibold text-white">{t('aboutPage.vision')}</h3>
+                <p className="text-justify mt-2 text-sky-100">
                   {t('aboutPage.visionText')}
                 </p>
               </div>
             </div>
           </AnimatedItem>
 
-          <AnimatedItem className="space-y-8 text-gray-700">
+          <AnimatedItem className="space-y-8 text-sky-100">
             <div>
-              <h3 className="text-2xl font-semibold text-brand-blue mb-3">{t('aboutPage.values')}</h3>
-              <ul className="list-disc list-inside space-y-2 ml-4">
+              <h3 className="text-2xl font-semibold text-white mb-3">{t('aboutPage.values')}</h3>
+              <ul className="list-disc list-inside space-y-2 ml-4 text-sky-100">
                 <li>{t('aboutPage.valuePatientOriented')}</li>
                 <li>{t('aboutPage.valueExpertise')}</li>
                 <li>{t('aboutPage.valueTechnology')}</li>
@@ -66,26 +66,26 @@ const AboutPage: React.FC = () => {
             </div>
             
             <div>
-              <h3 className="text-2xl font-semibold text-brand-blue mb-3">{t('aboutPage.ourPhilosophy')}</h3>
-              <p className="mb-4 text-justify">
+              <h3 className="text-2xl font-semibold text-white mb-3">{t('aboutPage.ourPhilosophy')}</h3>
+              <p className="mb-6 text-justify text-sky-100">
                 {t('aboutPage.ourPhilosophyIntro')}
               </p>
               <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-brand-blue-light p-6 rounded-lg">
-                      <h4 className="font-semibold text-brand-blue mb-2">{t('aboutPage.philosophyPersonalized')}</h4>
-                      <p className="text-sm">{t('aboutPage.philosophyPersonalizedText')}</p>
+                  <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl shadow-lg">
+                      <h4 className="font-semibold text-white mb-2">{t('aboutPage.philosophyPersonalized')}</h4>
+                      <p className="text-sm text-sky-200">{t('aboutPage.philosophyPersonalizedText')}</p>
                   </div>
-                   <div className="bg-brand-blue-light p-6 rounded-lg">
-                      <h4 className="font-semibold text-brand-blue mb-2">{t('aboutPage.philosophyModernTech')}</h4>
-                      <p className="text-sm">{t('aboutPage.philosophyModernTechText')}</p>
+                   <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl shadow-lg">
+                      <h4 className="font-semibold text-white mb-2">{t('aboutPage.philosophyModernTech')}</h4>
+                      <p className="text-sm text-sky-200">{t('aboutPage.philosophyModernTechText')}</p>
                   </div>
-                   <div className="bg-brand-blue-light p-6 rounded-lg">
-                      <h4 className="font-semibold text-brand-blue mb-2">{t('aboutPage.philosophyExpertStaff')}</h4>
-                      <p className="text-sm">{t('aboutPage.philosophyExpertStaffText')} <ReactRouterDom.Link to="/hekimlerimiz" className="text-brand-teal hover:underline">{t('aboutPage.meetOurTeamLink')}</ReactRouterDom.Link></p>
+                   <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl shadow-lg">
+                      <h4 className="font-semibold text-white mb-2">{t('aboutPage.philosophyExpertStaff')}</h4>
+                      <p className="text-sm text-sky-200">{t('aboutPage.philosophyExpertStaffText')} <ReactRouterDom.Link to="/hekimlerimiz" className="text-amber-300 hover:underline">{t('aboutPage.meetOurTeamLink')}</ReactRouterDom.Link></p>
                   </div>
-                   <div className="bg-brand-blue-light p-6 rounded-lg">
-                      <h4 className="font-semibold text-brand-blue mb-2">{t('aboutPage.philosophyComfortableEnv')}</h4>
-                      <p className="text-sm">{t('aboutPage.philosophyComfortableEnvText')}</p>
+                   <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl shadow-lg">
+                      <h4 className="font-semibold text-white mb-2">{t('aboutPage.philosophyComfortableEnv')}</h4>
+                      <p className="text-sm text-sky-200">{t('aboutPage.philosophyComfortableEnvText')}</p>
                   </div>
               </div>
             </div>
@@ -95,10 +95,10 @@ const AboutPage: React.FC = () => {
               <img 
                 src="https://i.imgur.com/EB1IW9r.jpeg" 
                 alt={t('aboutPage.teamImageAlt2')}
-                className="rounded-lg shadow-xl mx-auto"
+                className="rounded-xl shadow-2xl mx-auto border border-white/20"
                 loading="lazy"
               />
-              <p className="mt-4 text-gray-600 italic">{t('aboutPage.teamImageCaption')}</p>
+              <p className="mt-4 text-sky-200 italic">{t('aboutPage.teamImageCaption')}</p>
           </AnimatedItem>
 
         </PageContainer>

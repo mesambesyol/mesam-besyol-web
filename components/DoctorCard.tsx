@@ -12,6 +12,7 @@ interface DoctorCardProps {
 
 const DoctorCard: React.FC<DoctorCardProps> = ({ doctor }) => {
   const { getLocalized, t } = useLanguage();
+  const [imageError, setImageError] = useState(false);
   const hasRealImage = doctor.imageUrl;
   
   const title = getLocalized(doctor.title);
@@ -75,11 +76,12 @@ const DoctorCard: React.FC<DoctorCardProps> = ({ doctor }) => {
 
         {/* Background Image */}
         <div className="absolute inset-0">
-          {hasRealImage ? (
+          {hasRealImage && !imageError ? (
             <img
               className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-108"
               src={doctor.imageUrl}
               alt={doctor.name}
+              onError={() => setImageError(true)}
               loading="lazy"
             />
           ) : (

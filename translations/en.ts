@@ -35,7 +35,9 @@ export const enTranslations: TrTranslations = {
     about: "About Us",
     kvkk: "Privacy Policy (KVKK)",
     services: "Services",
+    team: "Our Team",
     doctors: "Our Doctors",
+    clinicStaff: "Clinic Staff",
     blog: "Blog",
     contact: "Contact",
     openMenu: "Open menu",
@@ -252,6 +254,19 @@ export const enTranslations: TrTranslations = {
     meetOurDoctors: "Meet Our Doctors",
     doctorsPageCtaText: "Our doctors provide services using current treatment methods and technologies. You can contact our clinic for information about your oral and dental health.",
   },
+  staffPage: {
+    title: "Our Clinic Staff",
+    subtitle: "Meet our friendly, dynamic, and professional dental healthcare support team.",
+    noStaff: "Clinic staff information is currently being updated.",
+    categories: {
+      all: "All",
+      management: "Management",
+      assistant: "Clinical Assistants",
+      reception: "Reception & Front Desk"
+    },
+    bottomCtaTitle: "A Comfortable and Welcoming Experience",
+    bottomCtaText: "From the moment you step into our clinic to after your treatment, we are here for your utmost comfort and satisfaction.",
+  },
   doctorDetailPage: {
     notFoundTitle: "Doctor Not Found",
     notFoundText: "The doctor you are looking for does not exist or their information may be being updated.",
@@ -348,6 +363,10 @@ export const enTranslations: TrTranslations = {
     doctors: {
       title: "Our Doctors | Mesam Besyol Dental Clinic Bursa",
       description: "Meet the experienced medical staff of Mesam Besyol Dental Clinic. Learn about our dentists in Bursa."
+    },
+    staff: {
+      title: "Clinic Staff | Mesam Besyol Dental Clinic Bursa",
+      description: "Meet the clinic management, dental assistants, and reception team of Mesam Besyol Dental Clinic in Bursa."
     },
     blog: {
       title: "Dental Health Blog | Mesam Besyol Dental Clinic",

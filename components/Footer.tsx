@@ -12,6 +12,7 @@ const Footer: React.FC = () => {
     { nameKey: 'navbar.about', path: '/hakkimizda' },
     { nameKey: 'navbar.services', path: '/hizmetlerimiz' },
     { nameKey: 'navbar.doctors', path: '/hekimlerimiz' },
+    { nameKey: 'navbar.clinicStaff', path: '/klinik-ekibimiz' },
     { nameKey: 'navbar.blog', path: '/blog' },
     { nameKey: 'navbar.contact', path: '/iletisim' },
     { nameKey: 'navbar.kvkk', path: '/kurumsal/kvkk' },

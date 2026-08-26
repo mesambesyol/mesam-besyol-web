@@ -5,7 +5,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { Service, Doctor, BlogPost, FaqItem } from '../types';
 import { FAQ_DATA } from '../data/faq';
 
-type PageKey = 'home' | 'about' | 'services' | 'doctors' | 'blog' | 'quiz' | 'contact' | 'appointment' | 'kvkk' | 'formSuccess' | 'notFound';
+type PageKey = 'home' | 'about' | 'services' | 'doctors' | 'staff' | 'blog' | 'quiz' | 'contact' | 'appointment' | 'kvkk' | 'formSuccess' | 'notFound';
 type DynamicData = Service | Doctor | BlogPost;
 
 interface MetaTagsProps {
@@ -201,7 +201,7 @@ const MetaTags: React.FC<MetaTagsProps> = ({ page, data }) => {
       const postTitle = getLocalized(post.title);
       title = `${postTitle} | ${t('appName')}`;
       description = getLocalized(post.summary);
-    } else if (['home', 'about', 'services', 'doctors', 'blog', 'quiz', 'contact', 'appointment', 'kvkk', 'formSuccess', 'notFound'].includes(page)) {
+    } else if (['home', 'about', 'services', 'doctors', 'staff', 'blog', 'quiz', 'contact', 'appointment', 'kvkk', 'formSuccess', 'notFound'].includes(page)) {
       title = t(`meta.${page}.title` as any);
       description = t(`meta.${page}.description` as any);
     }

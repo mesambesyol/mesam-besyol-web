@@ -33,7 +33,9 @@ export const trTranslations = {
     about: "Hakkımızda",
     kvkk: "KVKK Metni",
     services: "Hizmetlerimiz",
+    team: "Ekibimiz",
     doctors: "Hekimlerimiz",
+    clinicStaff: "Klinik Ekibimiz",
     blog: "Blog",
     contact: "İletişim",
     openMenu: "Menüyü aç",
@@ -250,6 +252,19 @@ export const trTranslations = {
     meetOurDoctors: "Hekimlerimizle Tanışın",
     doctorsPageCtaText: "Hekimlerimiz, güncel tedavi yöntemlerini ve teknolojilerini kullanarak hizmet vermektedir. Ağız ve diş sağlığınızla ilgili bilgi almak için kliniğimize başvurabilirsiniz.",
   },
+  staffPage: {
+    title: "Klinik Ekibimiz",
+    subtitle: "Güler yüzlü, dinamik ve profesyonel sağlık destek ekibimizle tanışın.",
+    noStaff: "Klinik ekibi bilgileri güncellenmektedir.",
+    categories: {
+      all: "Tümü",
+      management: "Yönetim",
+      assistant: "Klinik Asistanları",
+      reception: "Danışma & Hasta Kabul"
+    },
+    bottomCtaTitle: "Konforlu ve Güler Yüzlü Bir Deneyim",
+    bottomCtaText: "Kliniğimize adım attığınız andan tedavi sonrasına kadar tüm süreçlerde sizin rahatınız ve memnuniyetiniz için buradayız.",
+  },
   doctorDetailPage: {
     notFoundTitle: "Hekim Bulunamadı",
     notFoundText: "Aradığınız hekim mevcut değil veya bilgileri güncelleniyor olabilir.",
@@ -346,6 +361,10 @@ export const trTranslations = {
     doctors: {
       title: "Hekimlerimiz | Mesam Beşyol Diş Kliniği Bursa",
       description: "Mesam Beşyol Diş Kliniği'nin deneyimli hekim kadrosuyla tanışın. Bursa'daki diş hekimlerimiz hakkında bilgi edinin."
+    },
+    staff: {
+      title: "Klinik Ekibimiz | Mesam Beşyol Diş Kliniği Bursa",
+      description: "Mesam Beşyol Diş Kliniği'nin yönetici, klinik asistanı ve danışma ekibiyle tanışın. Güler yüzlü ve kaliteli sağlık hizmeti."
     },
     blog: {
       title: "Diş Sağlığı Blogu | Mesam Beşyol Diş Kliniği",

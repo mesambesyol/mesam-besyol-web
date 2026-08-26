@@ -14,6 +14,7 @@ import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import DoctorsPage from './pages/DoctorsPage';
 import DoctorDetailPage from './pages/DoctorDetailPage';
+import StaffPage from './pages/StaffPage';
 import AppointmentPage from './pages/AppointmentPage'; 
 import QuizPage from './pages/QuizPage';
 import { useLanguage } from './contexts/LanguageContext';
@@ -42,6 +43,7 @@ const App: React.FC = () => {
             <ReactRouterDom.Route path="/hizmetlerimiz/:slug" element={<ServiceDetailPage />} />
             <ReactRouterDom.Route path="/hekimlerimiz" element={<DoctorsPage />} />
             <ReactRouterDom.Route path="/hekimlerimiz/:slug" element={<DoctorDetailPage />} />
+            <ReactRouterDom.Route path="/klinik-ekibimiz" element={<StaffPage />} />
             <ReactRouterDom.Route path="/blog" element={<BlogPage />} />
             <ReactRouterDom.Route path="/blog/:slug" element={<BlogPostPage />} />
             <ReactRouterDom.Route path="/test" element={<QuizPage />} />
