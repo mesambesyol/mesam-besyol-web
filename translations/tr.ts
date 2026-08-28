@@ -4,7 +4,7 @@ export const trTranslations = {
   appName: "Mesam Beşyol Diş Kliniği",
   header: {
     whatsappLine: "WhatsApp Hattı",
-    open247: "7/24 Açığız",
+    open247: "7/24 Açık Nöbetçi Klinik",
   },
   buttons: {
     appointment: "Bizimle Çalışın",
@@ -343,8 +343,8 @@ export const trTranslations = {
   },
   meta: {
     home: {
-      title: "Mesam Beşyol Diş Kliniği | Bursa 7/24 Acil Diş Hekimi",
-      description: "Bursa Osmangazi'de 7/24 açık Mesam Beşyol Diş Kliniği. İmplant, gülüş tasarımı, ortodonti ve acil diş hekimliği için uzman kadromuzla tanışın."
+      title: "Mesam Beşyol Diş Kliniği | Bursa 7/24 Acil & Nöbetçi Diş Hekimi",
+      description: "Bursa Osmangazi'de 7/24 açık nöbetçi acil diş kliniği! Gece ve gündüz uzman hekim kadrosuyla acil diş tedavisi, implant, 20'lik diş çekimi, kanal tedavisi ve estetik diş hekimliği için kesintisiz hizmetinizdeyiz."
     },
     about: {
       title: "Hakkımızda | Mesam Beşyol Diş Kliniği | Bursa",

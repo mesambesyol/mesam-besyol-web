@@ -1,7 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { StaffMember } from '../types';
 import { useLanguage } from '../contexts/LanguageContext';
-import { SparklesIcon } from '../constants/icons';
 
 interface StaffCardProps {
   member: StaffMember;

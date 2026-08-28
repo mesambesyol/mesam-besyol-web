@@ -41,22 +41,41 @@ const TopBar: React.FC = () => {
                         <span>{fullAddress}</span>
                     </a>
 
-                    {/* Live Duty Doctor Status Badge (Only active between 19:00 and 09:00) */}
-                    {isNightDuty && (
+                    {/* 7/24 Status Badge */}
+                    {isNightDuty ? (
                         <span className="hidden md:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-[11px] font-medium shadow-xs">
                             <span className="w-2 h-2 rounded-full bg-emerald-400 live-duty-pulse inline-block" />
-                            <span>7/24 Açık &amp; Nöbetçi Hekim Aktif</span>
+                            <span>7/24 Açık • Nöbetçi Hekim Aktif</span>
+                        </span>
+                    ) : (
+                        <span className="hidden md:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-950/80 border border-sky-500/40 text-sky-300 text-[11px] font-medium shadow-xs">
+                            <span className="w-2 h-2 rounded-full bg-sky-400 inline-block" />
+                            <span>7/24 Kesintisiz Açık Diş Kliniği</span>
                         </span>
                     )}
                 </div>
 
-                {/* Social icons on the right */}
-                <div className="flex items-center space-x-4">
-                    {/* Mobile Duty Indicator (Only active between 19:00 and 09:00) */}
-                    {isNightDuty && (
+                {/* Right side: Emergency phone & Social icons */}
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                    {/* Emergency Call Link */}
+                    <a
+                        href="tel:+905366549868"
+                        className="inline-flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 font-semibold transition-colors"
+                        aria-label="7/24 Acil Diş Nöbetçi Hattı: 0536 654 98 68"
+                    >
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 live-duty-pulse inline-block" />
+                        <span className="font-bold">7/24 Acil:</span>
+                        <span>0536 654 98 68</span>
+                    </a>
+
+                    {/* Mobile Duty Indicator */}
+                    {isNightDuty ? (
                         <span className="inline-flex md:hidden items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-[10px] font-medium">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 live-duty-pulse inline-block" />
-                            <span>Nöbetçi Hekim Görevde</span>
+                            <span>Nöbetçi Hekim</span>
+                        </span>
+                    ) : (
+                        <span className="inline-flex md:hidden items-center gap-1.5 px-2 py-0.5 rounded-full bg-sky-950/80 border border-sky-500/40 text-sky-300 text-[10px] font-medium">
+                            <span>7/24</span>
                         </span>
                     )}
                     {socialLinks.map((link) => (

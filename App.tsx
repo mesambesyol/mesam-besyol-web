@@ -19,7 +19,7 @@ import AppointmentPage from './pages/AppointmentPage';
 import QuizPage from './pages/QuizPage';
 import { useLanguage } from './contexts/LanguageContext';
 import ScrollToTop from './components/ScrollToTop';
-import { WhatsAppIcon } from './constants/icons';
+import { WhatsAppIcon, PhoneIcon } from './constants/icons';
 import KVKKPage from './pages/KVKKPage';
 import FormSuccessPage from './pages/FormSuccessPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -54,12 +54,31 @@ const App: React.FC = () => {
           </ReactRouterDom.Routes>
         </main>
         <Footer />
-        <div className="fixed bottom-6 right-6 z-50">
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-none">
+          {/* 7/24 Emergency Call Button */}
+          <a
+            href="tel:+905366549868"
+            className="pointer-events-auto group flex items-center gap-2.5 bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-700 hover:to-rose-800 text-white pl-3.5 pr-4 py-2 rounded-full shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-white/90"
+            aria-label="7/24 Acil Diş Nöbetçi Hattı Ara"
+            title="7/24 Acil Nöbetçi Diş Hekimi"
+          >
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-300 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400"></span>
+            </span>
+            <PhoneIcon className="w-4 h-4 text-white animate-pulse" />
+            <div className="flex flex-col items-start leading-none text-left">
+              <span className="text-[9px] font-black uppercase text-amber-300 tracking-wider">7/24 ACİL DİŞ</span>
+              <span className="text-xs font-bold tracking-tight">0536 654 98 68</span>
+            </div>
+          </a>
+
+          {/* WhatsApp Button */}
           <a
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-14 h-14 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-105 relative group cta-pulse"
+            className="pointer-events-auto w-14 h-14 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-105 relative group cta-pulse"
             aria-label={t('header.whatsappLine')}
             title="WhatsApp Randevu Hattı"
           >

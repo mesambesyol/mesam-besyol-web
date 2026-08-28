@@ -31,12 +31,27 @@ const MetaTags: React.FC<MetaTagsProps> = ({ page, data }) => {
       const baseSchema = {
       "@context": "https://schema.org",
       "@type": ["Dentist", "MedicalClinic", "LocalBusiness"],
-      "name": t('appName'),
+      "name": `${t('appName')} | Bursa 7/24 Acil & Nöbetçi Diş Kliniği`,
+      "alternateName": "Mesam Beşyol Diş Kliniği",
+      "description": "Bursa Osmangazi'de 7/24 açık nöbetçi acil diş kliniği. Gece ve gündüz kesintisiz acil diş hekimi, implant, kanal tedavisi ve gülüş tasarımı.",
       "image": logoUrl,
       "@id": siteUrl,
       "url": siteUrl,
       "telephone": "+905366549868",
       "priceRange": "₺₺",
+      "medicalSpecialty": "Emergency Dentistry",
+      "currenciesAccepted": "TRY",
+      "paymentAccepted": "Cash, Credit Card",
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Bursa"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Osmangazi"
+        }
+      ],
       "address": {
           "@type": "PostalAddress",
           "streetAddress": t('footer.addressLine1'),
@@ -213,6 +228,11 @@ const MetaTags: React.FC<MetaTagsProps> = ({ page, data }) => {
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      <meta name="keywords" content="bursa 7 24 diş hekimi, bursa nöbetçi diş hekimi, bursa acil diş kliniği, bursa gece açık dişçi, osmangazi diş hekimi, beşyol diş kliniği, mesam beşyol bursa, acil diş ağrısı bursa, bursa diş hastanesi acil, implant bursa, zirkonyum bursa" />
+      <meta name="geo.region" content="TR-16" />
+      <meta name="geo.placename" content="Osmangazi, Bursa" />
+      <meta name="geo.position" content="40.2198;29.0435" />
+      <meta name="ICBM" content="40.2198, 29.0435" />
       <link rel="canonical" href={canonicalUrl} />
       
       <meta property="og:title" content={title} />

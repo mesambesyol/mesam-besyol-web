@@ -1,6 +1,6 @@
 {
   "name": "Mesam Beşyol Diş Kliniği",
-  "description": "Mesam Beşyol Diş Kliniği için bilgilendirici web sitesi. Hizmetler, hekimler ve iletişim bilgileri.",
+  "description": "Bursa Osmangazi Mesam Beşyol Diş Kliniği - 7/24 açık nöbetçi acil diş polikliniği, uzman hekim kadrosu, implant ve estetik diş hekimliği.",
   "requestFramePermissions": [],
   "prompt": "",
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
